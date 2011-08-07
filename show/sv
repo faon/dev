@@ -1,0 +1,3 @@
+TM=`date +%Y%m%d-%H%M`
+tar -czvf ../show-${TM}.tgz *
+

@@ -1,0 +1,158 @@
+#!/usr/bin/perl
+
+
+my $SLEEP=0;
+my $COLORS=" --colors ";
+
+my $CWD=`pwd`; chomp($CWD);
+my $WHO=$ENV{'USER'};
+my $answer="/tmp/answer-${WHO}";
+my $output="/tmp/output-${WHO}";
+my $LOG="/tmp/log-${WHO}";
+
+
+my @MENU;  # dir
+my @EXEC;  # files
+my @ITEM;  # dir + files
+my @TYPE;  # M=dir + files + Url
+my @URL;
+
+my @xtag,@mtag;
+my @comment,@comment;
+
+# ---------------------------
+my $DIR=shift(@ARGV);
+if ( $DIR eq '' )  {
+  print "Usage: menu dir\n";
+  exit;
+}
+
+if ( ! -d $DIR )  {
+  print "<E> $DIR is not a valid directory\n";
+  print "Usage: menu dir\n";
+  exit;
+}
+
+chdir $DIR;
+if ( -f "header" ) {
+  $HEADER=`head -1 header`; chomp $HEADER;
+}
+else  {
+  my $x=`pwd`; chomp $x;
+  my @y=split(/\//,$x);
+  $HEADER=$y[@y-1];
+  $HEADER="Default header for $HEADER";
+}
+# --------------------------
+open (IN,"find . -maxdepth 1 -type d | sort | ");
+while (<IN>) {
+  chomp;
+  if ( $_ eq '.' ) {
+   next;
+  }
+  push(@MENU,$_);
+  push(@ITEM,$_);
+  push(@TYPE,"M");
+}
+close(IN);
+
+# --------------------------
+open (IN,"find . -maxdepth 1 -type f | sort | ");
+while (<IN>) {
+  chomp; 
+
+  if ( $_ =~  "/header" ) {
+     next;
+  }
+  my $file=$_;
+  my $type='X';
+  my $url;
+  if ( $file =~ /=http:/ )  {
+    $file =~ s/\#/\//g;
+    ($file,$url)=split(/=/,$file);
+    $type='U';
+  }
+  elsif ( $file =~ /html$/ ) {
+    $type='U';
+    $url=$file;
+  }
+  #   print "F=$file  U:$url  T=$type\n";
+  #   sleep(3);
+  push(@URL,"$url");
+  push(@EXEC,$file);
+  push(@ITEM,$file);
+  push(@TYPE,$type);
+}
+close(IN);
+
+# --------------------------
+open (LOG,">> $LOG");
+print LOG "-----------------\n";
+for ( my $i=0; $i < @MENU; $i++ ) {
+  print LOG "M $i: $MENU[$i], $EXEC[$i], $ITEM[$i], $TYPE[$i]\n";
+}
+close (LOG);
+
+# --------------------------------------
+my $ESC=0;
+
+while ($ESC == 0) {
+  my $msg;
+  my $LINE="dialog $COLORS --menu '$HEADER' 0 0 10 ";
+
+  for (my $i=0; $i<@ITEM; $i++ ) {
+    my $x=substr($ITEM[$i],2); # ./
+    ($tag[$i],$comment[$i])=split(/-/,$x);
+    print "$i: '$TYPE[$i]' $ITEM[$i] : $comment[$i]\n";
+
+    if ( $TYPE[$i] eq 'M' ) {
+      $msg=" -> ";
+    } 
+    elsif ( $TYPE[$i] eq 'U' )  {
+	$msg=" ## ";
+    }
+    else  {
+      $msg="    ";
+    }
+    $LINE="$LINE '$i' '$msg $comment[$i]' ";
+  }
+
+  sleep($SLEEP);
+  system("$LINE 2> $answer");
+  $ESC=$?;
+
+ # --------------------------------------------
+ # APPLY
+  # print "$LINE ESC: $ESC\n";
+  if ( $ESC != 0 ) {
+    exit($ESC);
+  }
+  my $ANSWER=`cat $answer`; chomp($ANSWER);
+  $item=$ITEM[$ANSWER];
+  print "$ANSWER: $item\n";
+  sleep($SLEEP);
+
+
+  if ( $TYPE[$ANSWER] eq 'M' ) {
+    print "menu $item\n";
+    system("menu $item");
+  }
+  else  {
+    print "X $item\n";
+    if ( -x $item ) {
+      system("$item > $output");
+      system("dialog $COLORS --textbox $output 0 0" );
+    }
+    else  {
+      if ( $TYPE[$ANSWER] eq 'U' )  {
+        print "URL: $URL[$ANSWER]\n"; 
+         system("elinks $URL[$ANSWER] > $output" );
+         system("dialog $COLORS --textbox $output 0 0" );
+      }
+      else   {
+         system("dialog $COLORS --textbox $item 0 0" );
+      }
+    }
+  }
+}
+

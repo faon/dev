@@ -1,0 +1,29 @@
+#!/usr/bin/perl
+
+if ( $ARGV[0] eq '' || $ARGV[0] eq '-h' ) {
+ print "\n\nADELAN-FLT ----------------------------------------- A.Empain June2011\n";
+ print "Export the XLS file as csv, TABS / double-quotes\n\n";
+ print "Usage  : adelan-flt ADELANxxx.csv > adelanxxx.wiki\n";
+ print "Import : kate adelanxxxx.wiki, Select-all, Copy\n";
+ print "WIKI   : create the link [[adelanxxxx|2011, mai]]\n";
+ print "         create the page and 'CTRL-V'\n";
+ exit;
+}
+$FILE = shift(@ARGV);
+
+if ( ! -f $FILE ) {
+  die("<E> file $FILE does not exist\n"); 
+}
+# print "========[ Adelan filter ]===========\n";
+open(IN,"$FILE");
+while(<IN>)  {
+  chomp;
+  $_ =~ s/"//g;
+  my @e=split(/\t/,$_);
+  for ( my $i=0; $i<@e; $i++) {
+	if ( $e[$i] =~ /^$/ ) {  # empty 
+            $e[$i]=" - ";
+	}
+  }
+  print "||'''$e[0] $e[1]'''||''$e[2] $e[3] $e[4]''||$e[5]||$e[13]||\n";
+}

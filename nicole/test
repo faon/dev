@@ -1,0 +1,1000 @@
+IP,X,Y,Z,CB,CSPCHD,Database,EncodedQuery,EncodedRequest,ItemNr,JavaScriptDisabled,NumberToRetrieve,PublicationType,Record,RecordNumber,RequestId,RowRepeat,SearchT1,SearchT2,SearchTerm,SearchTerm1,SearchTerm2,SelectCounter,SortDirection,StartValue,WebPageNr
+-----------------
+GET /csp/web/Vubis.csp?SearchT1=&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=&Profile=Default&PreviousList=Start&PageType=Start&RequestId=40561_5&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+Profile
+PreviousList
+PageType
+RequestId
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/StartBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*C5*AE*BD*27*EA*90*28t*5B*DB*85*7C*9C*86*FE*27&BorrowerId=&SearchT1=&RowRepeat=0&CSPCHD=00010001000141vhldgG004133166674 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RowRepeat
+CSPCHD
+-----------------
+GET /csp/web/StartMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*C5*AE*BD*27*EA*90*28t*5B*DB*85*7C*9C*86*FE*27&BorrowerId=&CSPCHD=00010001000141vhldgG004133166674 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+CSPCHD
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*95M*BF*B0*83*8A*18*FE*A9*85*96*B5*1Al*CA*F3&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/List.csp?SearchT1=van+soest&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=van+soest&Profile=Default&PreviousList=Start&PageType=Start&EncodedRequest=*C5*AE*BD*27*EA*90*28t*5B*DB*85*7C*9C*86*FE*27&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+SearchT1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+SearchTerm1
+Profile
+PreviousList
+PageType
+EncodedRequest
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*95M*BF*B0*83*8A*18*FE*A9*85*96*B5*1Al*CA*F3&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/images/print.gif HTTP/1.1
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*95M*BF*B0*83*8A*18*FE*A9*85*96*B5*1Al*CA*F3&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?WebAction=NavigateInSet&EncodedRequest=*95M*BF*B0*83*8A*18*FE*A9*85*96*B5*1Al*CA*F3&Profile=Default&OpacLanguage=dut&PageType=RecordListFind&WebPageNr=1&StartValue=1&SearchMethod=Find_1&SearchType=&SortIndex=Title&SortDirection=1 HTTP/1.1
+WebAction
+EncodedRequest
+Profile
+OpacLanguage
+PageType
+WebPageNr
+StartValue
+SearchMethod
+SortIndex
+SortDirection
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*95M*BF*B0*83*8A*18*FE*A9*85*96*B5*1Al*CA*F3&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=J*19d*E6*E6*8AN*80*83*08*C8*ED*B2*D7*DAB&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=J*19d*E6*E6*8AN*80*83*08*C8*ED*B2*D7*DAB&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/List.csp?SearchT1=taraxacum&Index1=Index1&Database=1_VALU&SearchMethod=Find_1&SearchTerm1=taraxacum&OpacLanguage=dut&Profile=Default&EncodedRequest=*95M*BF*B0*83*8A*18*FE*A9*85*96*B5*1Al*CA*F3&EncodedQuery=*95M*BF*B0*83*8A*18*FE*A9*85*96*B5*1Al*CA*F3&Source=SysQR&PageType=Start&PreviousList=RecordListFind&WebPageNr=1&NumberToRetrieve=50&WebAction=NewSearch&StartValue=0&RowRepeat=0&ExtraInfo=SearchFromList&SortIndex=Title&SortDirection=1 HTTP/1.1
+SearchT1
+Index1
+Database
+SearchMethod
+SearchTerm1
+OpacLanguage
+Profile
+EncodedRequest
+EncodedQuery
+Source
+PageType
+PreviousList
+WebPageNr
+NumberToRetrieve
+WebAction
+StartValue
+RowRepeat
+ExtraInfo
+SortIndex
+SortDirection
+-----------------
+GET /csp/web/Vubis.csp?SearchT1=&Index1=Index1&Database=1_VALU&SearchMethod=Find_1&SearchTerm1=&OpacLanguage=dut&Profile=Default&EncodedRequest=J*19d*E6*E6*8AN*80*83*08*C8*ED*B2*D7*DAB&EncodedQuery=J*19d*E6*E6*8AN*80*83*08*C8*ED*B2*D7*DAB&Source=SysQR&PageType=RecordListFind&PreviousList=RecordListFind&WebPageNr=1&NumberToRetrieve=50&WebAction=NewSearch&StartValue=1&RowRepeat=0&ExtraInfo=&SortIndex=Author&SortDirection=1 HTTP/1.1
+Index1
+Database
+SearchMethod
+OpacLanguage
+Profile
+EncodedRequest
+EncodedQuery
+Source
+PageType
+PreviousList
+WebPageNr
+NumberToRetrieve
+WebAction
+StartValue
+RowRepeat
+SortIndex
+SortDirection
+-----------------
+GET /csp/web/StartMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*FD*05*AE*89H*5C*FA*3F*A1*AB*F6r*C5*C4*11P&BorrowerId= HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+-----------------
+GET /csp/web/StartBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*FD*05*AE*89H*5C*FA*3F*A1*AB*F6r*C5*C4*11P&BorrowerId=&SearchT1=&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RowRepeat
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=yl*DE*D0*8C*8C*99*3B*24*A6*9A*81k*12*21*B3&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/List.csp?SearchT1=jardin+botanique&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=jardin+botanique&Profile=Default&PreviousList=Start&PageType=Start&EncodedRequest=*FD*05*AE*89H*5C*FA*3F*A1*AB*F6r*C5*C4*11P&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+SearchT1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+SearchTerm1
+Profile
+PreviousList
+PageType
+EncodedRequest
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=yl*DE*D0*8C*8C*99*3B*24*A6*9A*81k*12*21*B3&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?SearchT1=bulletin+du+jardin+botanique&Index1=Index1&Database=1_VALU&SearchMethod=Find_1&SearchTerm1=bulletin+du+jardin+botanique&OpacLanguage=dut&Profile=Default&EncodedRequest=yl*DE*D0*8C*8C*99*3B*24*A6*9A*81k*12*21*B3&EncodedQuery=yl*DE*D0*8C*8C*99*3B*24*A6*9A*81k*12*21*B3&Source=SysQR&PageType=Start&PreviousList=RecordListFind&WebPageNr=1&NumberToRetrieve=50&WebAction=NewSearch&StartValue=0&RowRepeat=0&ExtraInfo=SearchFromList&SortIndex=Author&SortDirection=1 HTTP/1.1
+SearchT1
+Index1
+Database
+SearchMethod
+SearchTerm1
+OpacLanguage
+Profile
+EncodedRequest
+EncodedQuery
+Source
+PageType
+PreviousList
+WebPageNr
+NumberToRetrieve
+WebAction
+StartValue
+RowRepeat
+ExtraInfo
+SortIndex
+SortDirection
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*D7*25*8C*5E*3C*F2*E8V*9E*CDt*F8*FA*0Af*A5&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*D7*25*8C*5E*3C*F2*E8V*9E*CDt*F8*FA*0Af*A5&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/FullBBMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=N*F9*AA*1B*F2*98*88*3E*26*18*B1*3Cs*96*FEk&RecordNumber=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RecordNumber
+-----------------
+GET /csp/web/FullBB.csp?WebAction=ShowFullBB&EncodedRequest=*D7*25*8C*5E*3C*F2*E8V*9E*CDt*F8*FA*0Af*A5&Profile=Default&OpacLanguage=dut&NumberToRetrieve=50&StartValue=1&WebPageNr=1&SearchTerm1=DURAND%20THEOPHILE%20ALEXIS%20.1.12947&SearchT1=&Index1=Index1&SearchMethod=Find_1&ItemNr=1 HTTP/1.1
+WebAction
+EncodedRequest
+Profile
+OpacLanguage
+NumberToRetrieve
+StartValue
+WebPageNr
+SearchTerm1
+Index1
+SearchMethod
+ItemNr
+-----------------
+GET /csp/web/FullBBBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=N*F9*AA*1B*F2*98*88*3E*26*18*B1*3Cs*96*FEk&RecordNumber=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RecordNumber
+-----------------
+GET /csp/web/HoldingDisplay.csp?Profile=Default&Database=1&Record=12947&OpacLanguage=dut HTTP/1.1
+Profile
+Database
+Record
+OpacLanguage
+-----------------
+GET /csp/web/StartBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*DC*BA*94*92i*9CP*F9*9D*2E*F7*DA*8A*0B*7D*04&BorrowerId=&SearchT1=&RowRepeat=0&CSPCHD=00010001000146xwu6ey002004715316 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RowRepeat
+CSPCHD
+-----------------
+GET /csp/web/StartMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*DC*BA*94*92i*9CP*F9*9D*2E*F7*DA*8A*0B*7D*04&BorrowerId=&CSPCHD=00010001000146xwu6ey002004715316 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+CSPCHD
+-----------------
+GET /csp/web/Vubis.csp?SearchT1=&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=&Profile=Default&PreviousList=Start&PageType=Start&RequestId=40561_5&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+Profile
+PreviousList
+PageType
+RequestId
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/vubisie.css HTTP/1.1
+-----------------
+GET /csp/web/images/eng.gif HTTP/1.1
+-----------------
+GET /csp/web/images/dut.gif HTTP/1.1
+-----------------
+GET /csp/web/images/fre.gif HTTP/1.1
+-----------------
+GET /csp/web/images/vubissmart.jpg HTTP/1.1
+-----------------
+GET /csp/web/images/hoekl.gif HTTP/1.1
+-----------------
+GET /csp/web/images/hoekr.gif HTTP/1.1
+-----------------
+GET /favicon.ico HTTP/1.1
+-----------------
+GET /csp/web/images/info.gif HTTP/1.1
+-----------------
+GET /csp/web/FullBBMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*8C*1F*E5ER*1C*1B*3B*02Ra*A03*D2*BB*E7&PageType=FullBB&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?SearchT1=Transactions+of+the+Academy+of+Science+of+St.+Louis+&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=Transactions+of+the+Academy+of+Science+of+St.+Louis+&Profile=Default&PreviousList=Start&PageType=Start&EncodedRequest=*DC*BA*94*92i*9CP*F9*9D*2E*F7*DA*8A*0B*7D*04&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+SearchT1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+SearchTerm1
+Profile
+PreviousList
+PageType
+EncodedRequest
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/FullBBBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*8C*1F*E5ER*1C*1B*3B*02Ra*A03*D2*BB*E7&PageType=FullBB&RecordNumber= HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+-----------------
+GET /csp/web/images/print.gif HTTP/1.1
+-----------------
+GET /favicon.ico HTTP/1.1
+-----------------
+GET /csp/web/vubisie.css HTTP/1.1
+-----------------
+GET /csp/web/StartBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*83*3C*F0*18*22*F9*1E*D3*D6t*CB*95*5D*926*17&BorrowerId=&SearchT1=&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RowRepeat
+-----------------
+GET /csp/web/StartMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*83*3C*F0*18*22*F9*1E*D3*D6t*CB*95*5D*926*17&BorrowerId= HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+-----------------
+GET /csp/web/Vubis.csp?ExtraInfo=&SearchTerm1=&SearchT1=&Index1=Index1&ItemNr=&Database=1&SearchMethod=Find_1&OpacLanguage=dut&Profile=Default&EncodedRequest=*8C*1F*E5ER*1C*1B*3B*02Ra*A03*D2*BB*E7&PageType=FullBB&PreviousList=FullBB&NumberToRetrieve=50&WebAction=NavigateInSet&RecordNumber=&StartValue=1&SaveListInfo=General_9510340_Dummy HTTP/1.1
+Index1
+Database
+SearchMethod
+OpacLanguage
+Profile
+EncodedRequest
+PageType
+PreviousList
+NumberToRetrieve
+WebAction
+StartValue
+SaveListInfo
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*D3H*3D*00*D5*7Fm*AB*FEU*8D*F7*1B*1E*06*60&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*D3H*3D*00*D5*7Fm*AB*FEU*8D*F7*1B*1E*06*60&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?SearchT1=Transactions+of+the+Linnean+Society+&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=Transactions+of+the+Linnean+Society+&Profile=Default&PreviousList=Start&PageType=Start&EncodedRequest=*83*3C*F0*18*22*F9*1E*D3*D6t*CB*95*5D*926*17&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+SearchT1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+SearchTerm1
+Profile
+PreviousList
+PageType
+EncodedRequest
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/FullBBBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*B3*B94*22rAJ*DE*5C*CCL*EF*280kf&RecordNumber=3 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RecordNumber
+-----------------
+GET /csp/web/FullBB.csp?WebAction=ShowFullBB&EncodedRequest=*D3H*3D*00*D5*7Fm*AB*FEU*8D*F7*1B*1E*06*60&Profile=Default&OpacLanguage=dut&NumberToRetrieve=50&StartValue=3&WebPageNr=1&SearchTerm1=n%20.1.83063&SearchT1=&Index1=Index1&SearchMethod=Find_1&ItemNr=3 HTTP/1.1
+WebAction
+EncodedRequest
+Profile
+OpacLanguage
+NumberToRetrieve
+StartValue
+WebPageNr
+SearchTerm1
+Index1
+SearchMethod
+ItemNr
+-----------------
+GET /csp/web/FullBBMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*B3*B94*22rAJ*DE*5C*CCL*EF*280kf&RecordNumber=3 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RecordNumber
+-----------------
+GET /csp/web/vubisie.css HTTP/1.1
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*E3*0D*24*83*C2Vd*23*C0*C0*3DX*25G*29*DB&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?SearchT1=Transactions+of+the+Linnean+Society+&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=Transactions+of+the+Linnean+Society+&Profile=Default&PreviousList=Start&PageType=Start&EncodedRequest=*83*3C*F0*18*22*F9*1E*D3*D6t*CB*95*5D*926*17&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+SearchT1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+SearchTerm1
+Profile
+PreviousList
+PageType
+EncodedRequest
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*E3*0D*24*83*C2Vd*23*C0*C0*3DX*25G*29*DB&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/FullBB.csp?WebAction=ShowFullBB&EncodedRequest=*E3*0D*24*83*C2Vd*23*C0*C0*3DX*25G*29*DB&Profile=Default&OpacLanguage=dut&NumberToRetrieve=50&StartValue=1&WebPageNr=1&SearchTerm1=n%20.1.18923&SearchT1=&Index1=Index1&SearchMethod=Find_1&ItemNr=1 HTTP/1.1
+WebAction
+EncodedRequest
+Profile
+OpacLanguage
+NumberToRetrieve
+StartValue
+WebPageNr
+SearchTerm1
+Index1
+SearchMethod
+ItemNr
+-----------------
+GET /csp/web/FullBBMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*8F*E3OY*D3*15*CC*B5*19*02*BE*1A*BC*25*5E*BA&RecordNumber=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RecordNumber
+-----------------
+GET /csp/web/FullBBBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*8F*E3OY*D3*15*CC*B5*19*02*BE*1A*BC*25*5E*BA&RecordNumber=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RecordNumber
+-----------------
+GET /csp/web/vubisie.css HTTP/1.1
+-----------------
+GET /csp/web/StartMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*02*3C*E2*EB*5D*EEe*EB*3B*60*08*C01*04E*DA&BorrowerId= HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+-----------------
+GET /csp/web/StartBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*02*3C*E2*EB*5D*EEe*EB*3B*60*08*C01*04E*DA&BorrowerId=&SearchT1=&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RowRepeat
+-----------------
+GET /csp/web/Vubis.csp?ExtraInfo=&SearchTerm1=&SearchT1=&Index1=Index1&ItemNr=&Database=1&SearchMethod=Find_1&OpacLanguage=dut&Profile=Default&EncodedRequest=*8F*E3OY*D3*15*CC*B5*19*02*BE*1A*BC*25*5E*BA&PageType=FullBB&PreviousList=FullBB&NumberToRetrieve=50&WebAction=NavigateInSet&RecordNumber=1&StartValue=1&SaveListInfo=General_9510340_Dummy HTTP/1.1
+Index1
+Database
+SearchMethod
+OpacLanguage
+Profile
+EncodedRequest
+PageType
+PreviousList
+NumberToRetrieve
+WebAction
+RecordNumber
+StartValue
+SaveListInfo
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*ADN*C7*22*B0QE*5E*7C*AD*5E*29*F2*22*E6*9F&PageType=RecordListBrowse&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*ADN*C7*22*B0QE*5E*7C*AD*5E*29*F2*22*E6*9F&PageType=RecordListBrowse&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/List.csp?SearchT1=Vsesojuznogo+&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=Vsesojuznogo+&Profile=Default&PreviousList=Start&PageType=Start&EncodedRequest=*02*3C*E2*EB*5D*EEe*EB*3B*60*08*C01*04E*DA&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+SearchT1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+SearchTerm1
+Profile
+PreviousList
+PageType
+EncodedRequest
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*F0*A6*00*180ZB*9E*A5p*AF*81*80*5DY*FD&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?SearchT1=Trudy+Vsesojuznogo+Instituta+Zascity+Rastenij+&Index1=Index1&Database=1_VALU&SearchMethod=Find_1&SearchTerm1=Trudy+Vsesojuznogo+Instituta+Zascity+Rastenij+&OpacLanguage=dut&Profile=Default&EncodedRequest=*ADN*C7*22*B0QE*5E*7C*AD*5E*29*F2*22*E6*9F&EncodedQuery=*ADN*C7*22*B0QE*5E*7C*AD*5E*29*F2*22*E6*9F&Source=SysQR&PageType=Start&PreviousList=RecordListBrowse&WebPageNr=1&NumberToRetrieve=50&WebAction=NewSearch&StartValue=0&RowRepeat=0&ExtraInfo=SearchFromList&SortIndex=Title&SortDirection=1 HTTP/1.1
+SearchT1
+Index1
+Database
+SearchMethod
+SearchTerm1
+OpacLanguage
+Profile
+EncodedRequest
+EncodedQuery
+Source
+PageType
+PreviousList
+WebPageNr
+NumberToRetrieve
+WebAction
+StartValue
+RowRepeat
+ExtraInfo
+SortIndex
+SortDirection
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*F0*A6*00*180ZB*9E*A5p*AF*81*80*5DY*FD&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/List.csp?SearchT1=Trudy+Vsesojuznogo+&Index1=Index1&Database=1_VALU&SearchMethod=Find_1&SearchTerm1=Trudy+Vsesojuznogo+&OpacLanguage=dut&Profile=Default&EncodedRequest=*F0*A6*00*180ZB*9E*A5p*AF*81*80*5DY*FD&EncodedQuery=*F0*A6*00*180ZB*9E*A5p*AF*81*80*5DY*FD&Source=SysQR&PageType=Start&PreviousList=RecordListFind&WebPageNr=1&NumberToRetrieve=50&WebAction=NewSearch&StartValue=0&RowRepeat=0&ExtraInfo=SearchFromList&SortIndex=Author&SortDirection=1 HTTP/1.1
+SearchT1
+Index1
+Database
+SearchMethod
+SearchTerm1
+OpacLanguage
+Profile
+EncodedRequest
+EncodedQuery
+Source
+PageType
+PreviousList
+WebPageNr
+NumberToRetrieve
+WebAction
+StartValue
+RowRepeat
+ExtraInfo
+SortIndex
+SortDirection
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*2B*07r*DE8t*FFzv*A0*E2*24*8E*F4l*D0&PageType=RecordListBrowse&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*2B*07r*DE8t*FFzv*A0*E2*24*8E*F4l*D0&PageType=RecordListBrowse&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*07KW*EA*B6*8419rM*CE*21*BC*95*01s&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*07KW*EA*B6*8419rM*CE*21*BC*95*01s&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?SearchT1=Trudy+Vsesojuznogo+Plemennomu+&Index1=Index1&Database=1_VALU&SearchMethod=Find_1&SearchTerm1=Trudy+Vsesojuznogo+Plemennomu+&OpacLanguage=dut&Profile=Default&EncodedRequest=*2B*07r*DE8t*FFzv*A0*E2*24*8E*F4l*D0&EncodedQuery=*2B*07r*DE8t*FFzv*A0*E2*24*8E*F4l*D0&Source=SysQR&PageType=Start&PreviousList=RecordListBrowse&WebPageNr=1&NumberToRetrieve=50&WebAction=NewSearch&StartValue=0&RowRepeat=0&ExtraInfo=SearchFromList&SortIndex=Author&SortDirection=1 HTTP/1.1
+SearchT1
+Index1
+Database
+SearchMethod
+SearchTerm1
+OpacLanguage
+Profile
+EncodedRequest
+EncodedQuery
+Source
+PageType
+PreviousList
+WebPageNr
+NumberToRetrieve
+WebAction
+StartValue
+RowRepeat
+ExtraInfo
+SortIndex
+SortDirection
+-----------------
+GET /csp/web/FullBBBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*B9*AC*95*5B*8C*CBV*CB*B0*B6*C8*95*D8*8D9w&PageType=FullBB&RecordNumber= HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+-----------------
+GET /csp/web/List.csp?SearchT1=Uppsala+Universitets+&Index1=Index1&Database=1_VALU&SearchMethod=Find_1&SearchTerm1=Uppsala+Universitets+&OpacLanguage=dut&Profile=Default&EncodedRequest=*07KW*EA*B6*8419rM*CE*21*BC*95*01s&EncodedQuery=*07KW*EA*B6*8419rM*CE*21*BC*95*01s&Source=SysQR&PageType=Start&PreviousList=RecordListFind&WebPageNr=1&NumberToRetrieve=50&WebAction=NewSearch&StartValue=0&RowRepeat=0&ExtraInfo=SearchFromList&SortIndex=Author&SortDirection=1 HTTP/1.1
+SearchT1
+Index1
+Database
+SearchMethod
+SearchTerm1
+OpacLanguage
+Profile
+EncodedRequest
+EncodedQuery
+Source
+PageType
+PreviousList
+WebPageNr
+NumberToRetrieve
+WebAction
+StartValue
+RowRepeat
+ExtraInfo
+SortIndex
+SortDirection
+-----------------
+GET /csp/web/FullBBMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*B9*AC*95*5B*8C*CBV*CB*B0*B6*C8*95*D8*8D9w&PageType=FullBB&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/Vubis.csp?ExtraInfo=&SearchTerm1=&SearchT1=&Index1=Index1&ItemNr=&Database=1&SearchMethod=Find_1&OpacLanguage=dut&Profile=Default&EncodedRequest=*B9*AC*95*5B*8C*CBV*CB*B0*B6*C8*95*D8*8D9w&PageType=FullBB&PreviousList=FullBB&NumberToRetrieve=50&WebAction=NavigateInSet&RecordNumber=&StartValue=1&SaveListInfo=General_9510340_Dummy HTTP/1.1
+Index1
+Database
+SearchMethod
+OpacLanguage
+Profile
+EncodedRequest
+PageType
+PreviousList
+NumberToRetrieve
+WebAction
+StartValue
+SaveListInfo
+-----------------
+GET /csp/web/StartMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=e*AB1G*AD*FA*BAl*98*F2*B0v*9D*1A*9A*D9&BorrowerId= HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+-----------------
+GET /csp/web/StartBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=e*AB1G*AD*FA*BAl*98*F2*B0v*9D*1A*9A*D9&BorrowerId=&SearchT1=&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RowRepeat
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*C9*EF*12*94*2B*A4*7B*02*D5*10*03*1Er*5E*3E*17&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/List.csp?SearchT1=Uppsala+Universitets+Arsskrift+&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=Uppsala+Universitets+Arsskrift+&Profile=Default&PreviousList=Start&PageType=Start&EncodedRequest=e*AB1G*AD*FA*BAl*98*F2*B0v*9D*1A*9A*D9&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+SearchT1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+SearchTerm1
+Profile
+PreviousList
+PageType
+EncodedRequest
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*C9*EF*12*94*2B*A4*7B*02*D5*10*03*1Er*5E*3E*17&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?SearchT1=Uppsala+Universitets+&Index1=Index1&Database=1_VALU&SearchMethod=Find_1&SearchTerm1=Uppsala+Universitets+&OpacLanguage=dut&Profile=Default&EncodedRequest=*C9*EF*12*94*2B*A4*7B*02*D5*10*03*1Er*5E*3E*17&EncodedQuery=*C9*EF*12*94*2B*A4*7B*02*D5*10*03*1Er*5E*3E*17&Source=SysQR&PageType=Start&PreviousList=RecordListFind&WebPageNr=1&NumberToRetrieve=50&WebAction=NewSearch&StartValue=0&RowRepeat=0&ExtraInfo=SearchFromList&SortIndex=Author&SortDirection=1 HTTP/1.1
+SearchT1
+Index1
+Database
+SearchMethod
+SearchTerm1
+OpacLanguage
+Profile
+EncodedRequest
+EncodedQuery
+Source
+PageType
+PreviousList
+WebPageNr
+NumberToRetrieve
+WebAction
+StartValue
+RowRepeat
+ExtraInfo
+SortIndex
+SortDirection
+-----------------
+GET /csp/web/FullBBBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*AE*F8*BD*20*14JmU*D0*8C*D8*E04Z*A8b&PageType=FullBB&RecordNumber= HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+-----------------
+GET /csp/web/FullBBMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*AE*F8*BD*20*14JmU*D0*8C*D8*E04Z*A8b&PageType=FullBB&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/Vubis.csp?ExtraInfo=&SearchTerm1=&SearchT1=&Index1=Index1&ItemNr=&Database=1&SearchMethod=Find_1&OpacLanguage=dut&Profile=Default&EncodedRequest=*AE*F8*BD*20*14JmU*D0*8C*D8*E04Z*A8b&PageType=FullBB&PreviousList=FullBB&NumberToRetrieve=50&WebAction=NavigateInSet&RecordNumber=&StartValue=1&SaveListInfo=General_9510340_Dummy HTTP/1.1
+Index1
+Database
+SearchMethod
+OpacLanguage
+Profile
+EncodedRequest
+PageType
+PreviousList
+NumberToRetrieve
+WebAction
+StartValue
+SaveListInfo
+-----------------
+GET /csp/web/StartBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=Q*9C*7E*D2*5B*92*3DJ*C4*BD*BF*D2*82*96*BF*DA&BorrowerId=&SearchT1=&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RowRepeat
+-----------------
+GET /csp/web/StartMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=Q*9C*7E*D2*5B*92*3DJ*C4*BD*BF*D2*82*96*BF*DA&BorrowerId= HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*A2*1C*2D*B4D*19*A8*3C*F0SX*D5*81*1C*2B*E6&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*A2*1C*2D*B4D*19*A8*3C*F0SX*D5*81*1C*2B*E6&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?SearchT1=Vascular+Plants+of+the+Pacific+Northwest+&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=Vascular+Plants+of+the+Pacific+Northwest+&Profile=Default&PreviousList=Start&PageType=Start&EncodedRequest=Q*9C*7E*D2*5B*92*3DJ*C4*BD*BF*D2*82*96*BF*DA&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+SearchT1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+SearchTerm1
+Profile
+PreviousList
+PageType
+EncodedRequest
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/FullBBBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=v*0C*C6*11QwV*B2*7C*1C*16*D7*B9*8Ec*2E&RecordNumber=5 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RecordNumber
+-----------------
+GET /csp/web/FullBBMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=v*0C*C6*11QwV*B2*7C*1C*16*D7*B9*8Ec*2E&RecordNumber=5 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RecordNumber
+-----------------
+GET /csp/web/FullBB.csp?WebAction=ShowFullBB&EncodedRequest=*A2*1C*2D*B4D*19*A8*3C*F0SX*D5*81*1C*2B*E6&Profile=Default&OpacLanguage=dut&NumberToRetrieve=50&StartValue=5&WebPageNr=1&SearchTerm1=HITCHCOCK%20C%20LEO%20.1.14524&SearchT1=&Index1=Index1&SearchMethod=Find_1&ItemNr=5 HTTP/1.1
+WebAction
+EncodedRequest
+Profile
+OpacLanguage
+NumberToRetrieve
+StartValue
+WebPageNr
+SearchTerm1
+Index1
+SearchMethod
+ItemNr
+-----------------
+GET /csp/web/ListMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=T*82*20*86*26*B6R*A6*5D*B1*BB*22v*1B*C4*FB&PageType=RecordListFind&WebPageNr=1 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+-----------------
+GET /csp/web/List.csp?SearchT1=Vascular+Plants+of+the+Pacific+Northwest+&Index1=Index1&Database=1_VALU&OpacLanguage=dut&NumberToRetrieve=50&SearchMethod=Find_1&SearchTerm1=Vascular+Plants+of+the+Pacific+Northwest+&Profile=Default&PreviousList=Start&PageType=Start&EncodedRequest=Q*9C*7E*D2*5B*92*3DJ*C4*BD*BF*D2*82*96*BF*DA&WebPageNr=1&WebAction=NewSearch&StartValue=1&RowRepeat=0&MyChannelCount= HTTP/1.1
+SearchT1
+Index1
+Database
+OpacLanguage
+NumberToRetrieve
+SearchMethod
+SearchTerm1
+Profile
+PreviousList
+PageType
+EncodedRequest
+WebPageNr
+WebAction
+StartValue
+RowRepeat
+-----------------
+GET /csp/web/ListBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=T*82*20*86*26*B6R*A6*5D*B1*BB*22v*1B*C4*FB&PageType=RecordListFind&WebPageNr=1&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+PageType
+WebPageNr
+RowRepeat
+-----------------
+GET /csp/web/StartMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*ADpbB*8A*DB*0EU*5B*99*F0H*BF*0D*25*3A&BorrowerId= HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+-----------------
+GET /csp/web/Vubis.csp?ExtraInfo=&SearchTerm1=&SearchT1=&Index1=Index1&ItemNr=&Database=1&SearchMethod=Find_1&OpacLanguage=dut&Profile=Default&EncodedRequest=*AE*F8*BD*20*14JmU*D0*8C*D8*E04Z*A8b&PageType=FullBB&PreviousList=FullBB&NumberToRetrieve=50&WebAction=NavigateInSet&RecordNumber=&StartValue=1&SaveListInfo=General_9510340_Dummy HTTP/1.1
+Index1
+Database
+SearchMethod
+OpacLanguage
+Profile
+EncodedRequest
+PageType
+PreviousList
+NumberToRetrieve
+WebAction
+StartValue
+SaveListInfo
+-----------------
+GET /csp/web/StartBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=dut&EncodedRequest=*ADpbB*8A*DB*0EU*5B*99*F0H*BF*0D*25*3A&BorrowerId=&SearchT1=&RowRepeat=0 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RowRepeat
+-----------------
+GET /csp/web/Vubis.csp?OpacLanguage=fre HTTP/1.1
+OpacLanguage
+-----------------
+GET /csp/web/StartMenu.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=fre&EncodedRequest=*7DBt*29*E1*0C*E770W*9F*BE*94Q*DA*22&BorrowerId=&CSPCHD=00010001000147l1eeO0002927512898 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+CSPCHD
+-----------------
+GET /csp/web/StartBody.csp?SearchMethod=Find_1&Profile=Default&OpacLanguage=fre&EncodedRequest=*7DBt*29*E1*0C*E770W*9F*BE*94Q*DA*22&BorrowerId=&SearchT1=&RowRepeat=0&CSPCHD=00010001000147l1eeO0002927512898 HTTP/1.1
+SearchMethod
+Profile
+OpacLanguage
+EncodedRequest
+RowRepeat
+CSPCHD
+-----------------
+GET /csp/web/vubisnn.css HTTP/1.1
+-----------------
+GET /csp/web/images/dut.gif HTTP/1.1
+-----------------
+GET /csp/web/images/hoekr.gif HTTP/1.1
+-----------------

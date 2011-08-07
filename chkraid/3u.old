@@ -1,0 +1,52 @@
+Areca CLI, Version: 1.72.250, Date: Apr 11 2007( Linux )
+
+Test pour Git
+
+Controllers List
+----------------------------------------
+Controller#01(PCI): ARC-1231
+Current Controller: Controller#01
+----------------------------------------
+
+CMD     Description
+==========================================================
+main    Show Command Categories.
+set     General Settings.
+rsf     RaidSet Functions.
+vsf     VolumeSet Functions.
+disk    Physical Drive Functions.
+sys     System Functions.
+net     Ethernet Functions.
+event   Event Functions.
+hw      Hardware Monitor Information.
+exit        Exit CLI.
+==========================================================
+Command Format: <CMD> [Sub-Command] [Parameters].
+Note: Use <CMD> -h or -help to get details.
+CLI>  # Name             Raid# Level   Capacity Ch/Id/Lun  State                    
+===============================================================================
+ 1 ARC-1231-VOL#00    1   Raid0     64.0GB 00/00/00   Normal
+ 2 ARC-1231-VOL#02    1   Raid1+0  288.0GB 00/00/02   Normal
+ 3 ARC-1231-VOL#01    2   Raid1+0 1024.0GB 00/00/01   Normal
+ 4 ARC-1231-VOL#03    2   Raid1+0 1374.4GB 00/00/03   Normal
+===============================================================================
+GuiErrMsg<0x00>: Success.
+
+CLI>  #   ModelName        Serial#          FirmRev     Capacity  State
+===============================================================================
+ 1   WDC WD3200YS-01  WD-WCAPD5083262  21.00M21     320.1GB  RaidSet Member(1)
+ 2   WDC WD3200YS-01  WD-WCAPD5083727  21.00M21     320.1GB  RaidSet Member(1)
+ 3   WDC WD5000YS-01  WD-WCANU2362094  09.02E09     500.1GB  RaidSet Member(2)
+ 4   SAMSUNG HD501LJ  S0MUJ1KLB34119   CR100-05     500.1GB  RaidSet Member(2)
+ 5   WDC WD5000YS-01  WD-WCANU2368952  09.02E09     500.1GB  RaidSet Member(2)
+ 6   WDC WD5000YS-01  WD-WCANU2369259  09.02E09     500.1GB  RaidSet Member(2)
+ 7   WDC WD5000YS-01  WD-WCANU2380494  09.02E09     500.1GB  RaidSet Member(2)
+ 8   WDC WD5000YS-01  WD-WCANU2381433  09.02E09     500.1GB  RaidSet Member(2)
+ 9   WDC WD5000YS-01  WD-WCANU2321038  09.02E09     500.1GB  RaidSet Member(2)
+10   Hitachi HUA7220  JPW9J0HD0W2HZC   JP2OA3EA     500.1GB  RaidSet Member(2)
+11   WDC WD5000YS-01  WD-WCANU2363546  09.02E09     500.1GB  RaidSet Member(2)
+12   WDC WD5000YS-01  WD-WCANU2337591  09.02E09     500.1GB  RaidSet Member(2)
+===============================================================================
+GuiErrMsg<0x00>: Success.
+
+CLI> 

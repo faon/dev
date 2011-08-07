@@ -1,0 +1,24 @@
+#!/usr/bin/perl
+
+my $LINK=shift(@ARGV);
+if ( $LINK eq '' || $LINK eq "-h" ) {
+  print "Usage : $0 absolute-link\n";
+  exit;
+}
+
+my $PWD=`pwd`; chomp $PWD;
+my @pwd=split(/\//,$PWD);
+my @link=split(/\//,$LINK);
+
+my @relative='';
+
+for ( my $i=0; $i < @link; $i++ ) {
+  if ( $pwd[$i] eq $link[$i] ) {
+    push(@relative,"..");
+  }
+  else  {
+    push(@relative,$link[$i]);
+  }
+} 
+print join("/",@relative)."\n";
+

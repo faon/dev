@@ -1,0 +1,114 @@
+#!/bin/bash
+
+TTL='RandomJungle setup : please enter... '
+BKT='STATGEN                                                                                                 AE-2011-07-04'
+ANSW=/tmp/rj-$PPID
+DEFNSIM=5
+DEFCORES=2
+
+
+dialog --backtitle "$BKT" --title "$TTL" \
+   --inputbox "Number of simulations (default $DEFNSIM)" 0 0 2> $ANSW
+nsim=$( cat $ANSW )
+
+if [ -z $nsim ]
+then
+   nsim=$DEFNSIM
+fi
+
+dialog --backtitle "$BKT" --title "$TTL" \
+   --inputbox "MPI cores (default $DEFCORES)" 0 0 2> $ANSW
+CORES=$( cat $ANSW )
+
+if [ -z $CORES ]
+then
+   CORES=$DEFCORES
+fi
+
+# ------------------------------------------------
+DataGenerationsuperseed=2604
+dialog --backtitle "$BKT" --title "$TTL" \
+   --inputbox "Data simulation SUPER SEED (default to $DataGenerationsuperseed)" 0 0 2> $ANSW
+
+DataGenerationsuperseed=$( cat $ANSW )
+if [ -z $DataGenerationsuperseed ]
+then 
+  DataGenerationsuperseed=2604
+fi
+
+# ------------------------------------------------ 
+#   SAFE central location on compute-0-22 NAS
+
+SAFE=$PWD
+NODE=$( uname -n | cut -d. -f1 )
+if [ $NODE  = 'compute-0-22' ]
+then
+  SAFE=$( echo $SAFE | sed 's/\/storage\/statgen/\/home\/storage\/statgen/' )
+fi
+
+# -------------------------------------------------
+#    LOCAL work location
+
+TMPSCRATCH=/scratch  # local to the node
+
+SUBMIT="rj-submit"; 
+SETTINGS="SettingsWanI.txt"
+
+
+TASKS=$( cat $SETTINGS | wc -l )  # One more, fine for 'i < $TASKS'
+
+# -------------------------------------------
+LOG="/tmp/rj-${PID}.log"
+echo "SETTINGS: $SETTINGS"                   > $LOG
+echo "SAFE: $SAFE"                           >> $LOG
+echo "TASKS: $(( $TASKS - 1 )), NSIM: $nsim" >> $LOG
+echo "Super Seed: $DataGenerationsuperseed"  >> $LOG
+echo "MPI Cores: $CORES"                     >> $LOG
+
+dialog --backtitle "$BKT" --title "Summary" \
+   --ok-label OK   --textbox  $LOG 0 0 2> $ANSW
+
+
+# -------------------------------------------
+#    Create the submit list
+
+echo "#!/bin/bash"                               > $SUBMIT
+echo "#$ -N RandomJungle"                       >> $SUBMIT
+echo "#$ -l h_vmem=500M "                       >> $SUBMIT
+echo "#$ -l mem_free=500M "                     >> $SUBMIT
+echo "#$ -l h_rt=1:00:00 #tobedetermined  "     >> $SUBMIT
+echo "#$ -m as  "                               >> $SUBMIT
+echo "#$ -M alain.empain@ulg.ac.be  "           >> $SUBMIT
+echo "#$ -cwd "                                 >> $SUBMIT
+echo "#$ -t 1 #1-24 "                           >> $SUBMIT
+echo "# ------------------------ 2 cores "      >> $SUBMIT
+echo "#$ -pe mpi 2 "                            >> $SUBMIT
+
+echo "# ---- To be run on the front-end ! --- " >> $SUBMIT
+echo "NODE=\$( uname -n | cut -d. -f1 )"        >> $SUBMIT
+echo "if [ ! \$NODE = 'grid01' ];then  echo 'Error : this script MUST be run on RFE, the front-end !!'; exit;fi" >> $SUBMIT   
+echo "# ------------------------------------- " >> $SUBMIT
+echo "./rj-run $cores $DataGenerationsuperseed $task $sim $nsim $SAFE"          >> $SUBMIT
+
+for ((task=1; task<$TASKS; task++))
+do
+  subdir="setting${task}"
+  if [ ! -d $subdir ]
+  then
+    mkdir $PWD/$subdir
+  fi
+ 
+  # for ((sim=1; sim<$nsim; sim++ ))
+  # do
+  #  echo "qsub ./rj-run $task $sim $nsim $SAFE" >> $SUBMIT
+  # done
+done
+
+chmod 755 $SUBMIT
+
+echo -e "\n\n----------- Important ----------------------------------------------------------------------------------------"
+echo "To qsub the individual simulations, you should now "
+echo "   * login into RFE"
+echo "   * cd $SAFE "
+echo "   * and run ./rj-submit" 
+

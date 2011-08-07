@@ -1,0 +1,50 @@
+
+Areca CLI, Version: 1.72.250, Date: Apr 11 2007( Linux )
+
+
+Controllers List
+----------------------------------------
+Controller#01(PCI): ARC-1231
+Current Controller: Controller#01
+----------------------------------------
+
+CMD     Description
+==========================================================
+main    Show Command Categories.
+set     General Settings.
+rsf     RaidSet Functions.
+vsf     VolumeSet Functions.
+disk    Physical Drive Functions.
+sys     System Functions.
+net     Ethernet Functions.
+event   Event Functions.
+hw      Hardware Monitor Information.
+exit        Exit CLI.
+==========================================================
+Command Format: <CMD> [Sub-Command] [Parameters].
+Note: Use <CMD> -h or -help to get details.
+CLI>  # Name             Raid# Level   Capacity Ch/Id/Lun  State                    
+===============================================================================
+ 1 ARC-1231-VOL#00    1   Raid0     64.0GB 00/00/00   Normal
+ 2 ARC-1231-VOL#02    1   Raid1+0  288.0GB 00/00/02   Normal
+ 3 ARC-1231-VOL#01    2   Raid6   10000.0GB 00/00/01   Initializing(63.6%)
+===============================================================================
+GuiErrMsg<0x00>: Success.
+
+CLI>  #   ModelName        Serial#          FirmRev     Capacity  State
+===============================================================================
+ 1   WDC WD3200YS-01  WD-WCAPD5083262  21.00M21     320.1GB  RaidSet Member(1)
+ 2   WDC WD3200YS-01  WD-WCAPD5083727  21.00M21     320.1GB  RaidSet Member(1)
+ 3   ST32000644NS     9WM3SC2S         SN12        2000.4GB  RaidSet Member(2)
+ 4   ST32000644NS     9WM3RSB2         SN12        2000.4GB  RaidSet Member(2)
+ 5   ST32000644NS     9WM3NFR7         SN12        2000.4GB  RaidSet Member(2)
+ 6   ST32000644NS     9WM3SCBQ         SN12        2000.4GB  RaidSet Member(2)
+ 7   ST32000644NS     9WM3RXAW         SN12        2000.4GB  RaidSet Member(2)
+ 8   ST32000644NS     9WM3SFNL         SN12        2000.4GB  RaidSet Member(2)
+ 9   ST32000644NS     9WM3LJBK         SN12        2000.4GB  RaidSet Member(2)
+10   ST32000644NS     9WM3RV9J         SN12        2000.4GB  HotSpare  
+===============================================================================
+GuiErrMsg<0x00>: Success.
+
+CLI>
+

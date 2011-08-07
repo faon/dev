@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <TITLE>Read me first</TITLE>
+</HEAD>
+
+<BODY>
+<H1>Rules</H1>
+
+<H2>Grid usage</H2>
+<H3>Getting access</H3>
+
+To use the grid computing environment, you need to send securely (SMS to Alain Mobile: +32 497 701764 ) :
+<OL>
+   <LI> a standard UNIX login name</LI>
+   <LI> a good password (mixture of lower/uppercases, digits, special characters)</LI>
+   <LI> a passphrase (a few words, easy to remember but very difficult to guess or to break by brute force) for internal ssh use.</LI> 
+</OL>
+
+<H3>Accessing</H3>
+
+When you have an account on the grid,
+<PRE>
+    you may log in the Rocks front-end, aka 'RFE' (139.165.108.214)
+    from this RFE, you may submit your jobs to the Sun Grid Engine, aka 'SGE'
+    your account is also set on every computing node ('ssh compute-O-5' for ex, using your passphrase)
+    the list of active compute-nodes is given by 'qhost' 
+</PRE>
+Tip : if you want to often use ssh or scp, it is possible to give your passphrase once :
+<UL>
+<LI>start a new shell under the protection of ssh-agent :
+     <PRE>ssh-agent bash</PRE>
+</LI>
+<LI>then inject your passphrase :
+     <PRE>ssh-add 
+     Please enter your passphrase : ***********
+     </PRE>
+  and you are done : scp and ssh will then work with no explicit passphrase requirements.
+</LI>
+</UL>
+
+<H2>Storage</H2>
+<H3>Three central locations are provided :</H3>
+
+<OL>
+<LI>    your 'natural' home on RFE : please use it with care, no huge data or application !</LI>
+<LI>    12 TB NAS for stable, long term storage : /home/safe/youraccount</LI>
+<LI>    11 TB NAS for short-term work data, used heavily by the computing nodes : /home/volatile/youraccount; old and non active files may be erased when a disk full is imminent.</LI> 
+</OL>
+
+<H3>For AIS :</H3>
+<UL>
+<LI>    19 TB NAS : /home/safeais</LI>
+</UL> 
+
+<H3>For STATGEN :</H3>
+<UL>
+<LI>    11 TB : /home/storage</LI> 
+</UL>
+<H2>Two local storages</H2>
+<OL>
+<LI>    /tmp on every computing node</LI>
+<LI>    /scratch on every computing node (bigger partition : 50 - 200 GB, depending on the nodes) </LI>
+</OL>
+<B>Please take care to discard your temporary files ! </B>
+</BODY>
+</HTML>
+

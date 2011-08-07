@@ -1,0 +1,14 @@
+<MACRO>	loc	$LOC=$a;
+<MACRO>	bg	$BG=$a;
+<MACRO>	off	$XOFF=$a; $YOFF=$b;
+<MACRO>	wait	$DELAY=$a;
+<MACRO>	time	$TIME=$a;
+<MACRO>	title	title($a);
+
+<MACRO>	txt	$LOC="n"; $off=0; $yoff=0;
+
+title("Renée CAVRENNE -- poètesse nandrinoise")|11_m.gif	5.mp3|7
+loc(c)|bg(green)|12_m.gif	6.mp3|15
+10_m.gif	5.mp5|10
+
+

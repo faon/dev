@@ -1,0 +1,2 @@
+ ./vubis-parse lognov.csv | sort | uniq -c | sort -n
+

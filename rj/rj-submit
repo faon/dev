@@ -1,0 +1,16 @@
+#!/bin/bash
+#$ -N RandomJungle
+#$ -l h_vmem=500M 
+#$ -l mem_free=500M 
+#$ -l h_rt=1:00:00 #tobedetermined  
+#$ -m as  
+#$ -M alain.empain@ulg.ac.be  
+#$ -cwd 
+#$ -t 1 #1-24 
+# ------------------------ 2 cores 
+#$ -pe mpi 2 
+# ---- To be run on the front-end ! --- 
+NODE=$( uname -n | cut -d. -f1 )
+if [ ! $NODE = 'grid01' ];then  echo 'Error : this script MUST be run on RFE, the front-end !!'; exit;fi
+# ------------------------------------- 
+./rj-run  2604   5 /home/alain/dev/rj

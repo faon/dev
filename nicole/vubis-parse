@@ -1,0 +1,86 @@
+#!/usr/bin/perl
+
+# ------------------------------------
+my $HEADER="1:IP,2:X,3:Y,4:Time";
+my @NAMES=("appserv_root","BoolOp2","BoolOp3","BoolOp4","BoolOp5","CB","CSPCHD","Database","Delimiter","ElementListSelect","EmailAddres","EncodedQuery","EncodedRequest","ExportMethod","ExportTemplate","ExtraInfo","FieldName","Index","Index1","Index2","Index3","Index4","Index5","ItemNr","JavaScriptDisabled","Language","ModParameter","Module","NumberToRetrieve","OpacLanguage","Owned","p","PageType","PreviousList","Profile","PublicationType","Record","RecordNumber","RequestId","RowRepeat","SaveListInfo","SearchMethod","SearchT1","SearchT2","SearchT3","SearchT4","SearchTechnique","SearchTerm","SearchTerm1","SearchTerm2","SearchTerm3","SearchTerm4","SelectCounter","SortDirection","SortIndex","Source","StartValue","Subscript3","Subscript4","Subscript6","type","WebAction","WebPageNr" );
+my $TRAILER=",Time,Min,ERR,Size";
+my %INDEX;
+for (my $i=0; $i<@NAMES; $i++)  {
+  $INDEX{$NAMES[$i]}=$i;
+}
+
+my @DATA; # work vector to keep the current line data
+
+# ------------------------------------
+sub printHeader  {
+  print $HEADER;
+  for (my $i=0; $i<@NAMES; $i++)  {
+     printf ",%d:$NAMES[$i]",$i+5;
+  }
+  print $TRAILER;
+  print "\n";
+}
+
+
+# ------------------------------------
+sub init  {
+    for (my $i=0; $i<@NAMES; $i++)  {
+      $DATA[$i]='';
+    }
+}
+
+# ------------------------------------
+#    MAIN
+# -------------------------------------
+printHeader();
+
+
+while (<>)  {
+  chomp();
+  my $idx;
+  init();
+  my @fld=split(/,/,$_);
+  $fld[3]=substr($fld[3],1);
+  my ($date,$H,$M,$S)=split(/:/,$fld[3]);
+  # print "## $date $H $M $S :: $fld[3]\n";
+  my ($day,$month,$year)=split(/\//,$date);
+  # $day=substr($day,1);
+  my $time="$year$month$day";
+  my $seconds=$H*3660+$M*60+$S;
+  print "$fld[0],$fld[1],$fld[2],$fld[3]";
+  my $cmd=$fld[5];
+  $cmd=~s/"//g;
+  # print "-----------------\n$cmd\n";
+
+
+  my ($HEAD, $BODY, $TAIL)=split(/ /,$cmd);
+  if ( $BODY =~ /\?/ ) {
+     my ($prog,$params)=split(/\?/,$BODY);
+     my @PAR=split(/&/,$params);
+     for (my $i=0; $i<@PAR; $i++) {
+        my ($id,$data)=split(/=/,$PAR[$i]);
+        $id=~s/^amp;//;
+        if ( $data ne '' ) {
+           # print "  $i:$id == $data\n";
+           #print "$id\n";
+           $idx=$INDEX{$id};
+           $DATA[$idx]=$data;
+        }
+        else  {
+           # print "  $i:$id ---------\n";
+        }
+     }
+     for (my $i=0; $i<@NAMES; $i++)  {
+        print ",$DATA[$i]";
+     }
+  }
+  else  {
+     print "== $HEAD :: $BODY :: $TAIL == \n";
+  }
+
+
+
+  # print "$prog\n";
+  print ",$fld[68],$fld[69],$time,$seconds\n";
+}
+

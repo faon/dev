@@ -1,0 +1,12 @@
+# ---------- secret file
+reboot
+# ----------------------
+*.ps
+*.pdf
+*.gif
+*.jpg
+*.tgz
+*.csv
+*.lst
+*.wiki
+

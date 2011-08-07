@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#
+# Checks the status of the hardware raid.
+# Checkresults are returned as text or integer.
+# The script expects one parameter: The check you want to perform .
+# The second paramter, the value you want to grep, is optional.
+# The third parameter, the adapter number, is optional. If adapter number is missing, 0 is set.
+# Thanks to https://twiki.cern.ch/twiki/bin/view/FIOgroup/DiskRefPerc
+# for the nice overview
+#
+
+MEGACLI_BIN=/opt/megacli/MegaCli64
+MEGACLI="sudo $MEGACLI_BIN"
+
+# Check if Megacli is installed and executable
+if [ -e $MEGACLI_BIN ]
+then
+    true
+else
+    echo "Megacli missing";
+    exit 1
+fi
+
+# Set the adapternumber
+if [ $3 ]
+then
+    ADAPTER=$3
+else
+    ADAPTER=0
+fi
+
+# Check if Megacli is compatible with the hardware
+COUNT=$($MEGACLI -adpCount|grep "Controller Count"|grep -o "[0-9]*")
+if [ $COUNT -lt 1 ]
+then
+    echo "No compatible adapter"
+    exit 1
+fi
+
+case $1 in
+    bbu)
+        # Grep anything from the bbu info
+        $MEGACLI -AdpBbuCmd -a${ADAPTER}|grep "$2"|head -n1|cut -d ":" -f 2|tr -d " "
+    ;;
+    adapter)
+        # Grep anything from the adapter info
+        $MEGACLI -AdpAllInfo -a${ADAPTER}
+    ;;
+    mediaerrors)
+        # Return the total number of disk which has reported an media error.
+        $MEGACLI -PDList -a${ADAPTER} |grep "Media Error Count"|grep -cv "Media Error Count: 0"
+    ;;
+    raiderrors)
+        # Return the number of arrays which do not have state "optimal"
+        $MEGACLI -LDInfo -Lall -a${ADAPTER}|grep State|grep -vc Optimal
+    ;;
+    alarm)
+        # Return 0 if the adapter is reporting no alarm. Return 1 if an alarm is reported.
+        # This check does not know what kind of alarm is reported.
+        $MEGACLI -AdpAllInfo -aALL|grep -i Alarm|head -n1|grep -cv "Alarm.*Absent"
+    ;;
+    adapters)
+        # Return the number of installed adapters
+        echo $COUNT
+    ;;
+esac
+

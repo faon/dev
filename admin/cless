@@ -1,0 +1,9 @@
+#!/bin/bash
+# used to decrypt without leaving a file 
+# --- Version 0.1 
+
+TMP=./$PPID
+CRYPT=$1; shift
+ 
+dialog --title Decrypt --passwordbox "Enter the passphrase for $CRYPT" 0 0 2> $TMP.a
+gpg $CRYPT

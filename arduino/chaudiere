@@ -1,0 +1,35 @@
+int first=0;
+long cnt=0;
+int state;
+int event;
+int start:
+int stop;
+int val;
+int on;
+int off;
+float ratio;
+
+val=analogRead(ptr);
+event=milli();
+// --------------- LED on
+if ( val < 500 )  {
+  if ( state == 0 ) {  // state change, starting
+    if ( cnt > 0 )  {  // not first run
+      on = start - stop;
+      off = event - stop;
+      ratio = on / ( on + off );
+      cnt++;
+      // flush
+    }
+    state = 1;
+    start = event;  // anyway, store it
+  }
+}
+// -------------- LED off
+else  {
+  if ( state == 1  ) {  // state change, burner off
+    state = 0;
+    end = event;
+  }
+}
+

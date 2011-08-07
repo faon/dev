@@ -1,0 +1,380 @@
+#!/usr/bin/perl
+
+use Tk;
+
+
+   $DEBUG=1;
+   $DELAY=5;
+   $DETACH='';     # '' or '&' for background process
+   $MEMBERSET=1;   # empty the frame from its old items
+                   # disabled by 'loc' or '@' in xxx.src
+
+   $XMAX=1200;
+   $YMAX=800;
+
+   $cnt;  
+
+# -------------------------------------------------------------------
+sub init  {
+   if ( $ARGV[0] eq '-h' || $ARGV[0] eq '' || ! -e $ARGV[0] ) {
+     help();
+     if ( ! -e $ARGV[0] ) {
+       die "SHOW (file not found : $ARGV[0])";
+     }
+     exit;
+   }
+   $LOC='c';
+   $BG='';
+   $START=1;  # for mute...
+}
+
+# -------------------------------------------------------------------
+sub debug  {
+  if ( $DEBUG ) {
+    my ($t)=shift;
+    print "$t\n";
+  }
+}
+# -------------------------------------------------------------------
+sub help  {
+  print "\n\n==================================================================[ Show  A.Empain Mar2000-Jun2011 ]\n";
+  # ...
+}
+# -------------------------------------------------------------------
+# -------------------------------------------------------------------
+sub loadscript {
+  $cnt=0;
+  my ($scr)=shift;
+  while(<>)  {
+    chomp;
+    if ( length($_) < 5 ) { # discard too short lines (~empty)
+       next;
+    }
+    $_ =~ s/\t+/\t/g; # compress multiple tabs
+    # --- Comment
+    if ( /^#/ ) {
+      if ( ! /^##/ ) {
+        debug("$_\n");
+      }
+      next;
+    }
+    # --- Macro definition
+    if ( /^</ ) {
+      ($x, $name, $body)=split(/\t/,$_);
+      $MAC{$name}=$body;
+      $dtxt=sprintf("MACRO: %-10s : %50s\n",$name,$body);
+      debug($dtxt);
+      next;
+    }
+    # --- Command
+    ( $IMAGE[$cnt], $SOUND[$cnt])=split(/\t/,$_);
+    debug(sprintf("{ %3d } %-30s : %-30s\n",$cnt,$IMAGE[$cnt],$SOUND[$cnt]));
+    $cnt++;
+  } 
+  $ptr=-1; # ?? 
+}
+
+# -------------------------------------------------------------------
+sub mute  {
+  if ( $START == 1 ) {
+    $START=0; debug("Not muting when starting"); 
+    return; 
+  }
+  debug("Muting $soundplayer");
+  if ( $soundplayer eq "play" ) { system("killall sox"); }
+  if ( $soundplayer eq "mpg123" ) { system("killall mpg123"); }
+}
+
+# -------------------------------------------------------------------
+sub play  {
+  my ($file)=shift;
+  mute();
+  if ( $file eq '-' )  { return; }  # NOOP
+  if ( $file =~ /mp3$/ ) {
+    $soundplayer="mpg123";
+    system("$soundplayer -q $file &");
+    return;
+  }
+  if ( $file =~ /wav$/ ) {
+    $soundplayer="play";
+    system("$soundplayer $file &");
+    return;
+  }
+  debug("<E> ### ERROR : sound file $file not valid");
+}
+# -------------------------------------------------------------------
+# -------------------------------------------------------------------
+# -------------------------------------------------------------------
+
+# -------------------------------------------------------------------
+# -------------------------------------------------------------------
+# -------------------------------------------------------------------
+# -------------------------------------------------------------------
+
+
+sub initwind  {
+  $top = MainWindow->new();
+  $canvas = $top->Canvas(width => $XMAX, height => $YMAX)->pack();
+}
+
+# -------------------------------------------------------------------
+sub initcmd  {
+  $cmd = MainWindow->new();
+  $menubar=$cmd->Frame()->pack;
+
+  $menu_freerun=$menubar->
+    Button(-text=>'FreeRUN', -command => \&freerun, -bg => darkgrey)
+      ->pack(-side => left );
+
+  $menu_stop=$menubar->
+    Button(-text=>'OneShot', -command => \&stop, -bg => darkgrey)
+      ->pack(-side => left );
+
+  $menu_timer=$menubar->
+    Label(-text => 'Timing', -bg => lightyellow)->pack(-side => left);
+  
+  # -------------------
+
+  $scale=$menubar->
+    Scale( -orient   => 'horizontal',
+           -from     => -1,
+           -to       => $cnt,
+           -length   => 200,
+           -variable => \$ptr,
+           -command  => \&jump,
+          )->pack(-side => left ); 
+  
+  $menu_next=$menubar->
+     Button(-text => 'Next', -command => \&nextstep )
+         ->pack(-side => left );
+
+  $menu_os=$menubar->
+     Button(-text => 'OsView', -command => sub { system('xosview &') } )
+         ->pack(-side => left );
+  
+  $menu_ps=$menubar->
+     Button(-text => 'Process', -command => sub { system('xterm -e top &') } )
+         ->pack(-side => left );
+
+  $menu_exit=$menubar->
+     Button(-text => 'Exit', -command => \&exit, -bg => darkred )
+         ->pack(-side => left );
+  $cmd->configure( -title => 'MONITOR' );
+}
+
+
+# -------------------------------------------------------------------
+sub jump  {
+  mute();
+  $ptr--;
+  reset_timer();
+  nextstep();
+}
+
+# -------------------------------------------------------------------
+sub title  {
+  my ($txt)=shift;
+  $top->configure( -title => $txt );
+  debug("   ~~~ subtitle <$txt>");
+}
+
+# -------------------------------------------------------------------
+# EXEC engine
+# -------------------------------------------------------------------
+
+sub macroexec  {
+  my ($mac)=shift;         # ex: wait(5)
+  if ( $mac =~ /\d+/ )  {  # pure integer
+    $mac="tile($mac)";     # shortcut
+  }
+  my ($name,$arg)=split(/\(/,$mac);
+  $arg="($arg";
+  my ($a,$b,$c,$d,$e,$f,$g)=eval($arg);
+  my $str=join('#',$a,$b,$c,$d,$e,$f,$g);
+  debug("==> macro $mac EVAL:<MAC{$name}>,arg=$str)\n");
+  debug("     <$a> <$b> <$c> ...");
+  eval("$MAC{$name}");
+} 
+# -------------------------------------------------------------------
+
+sub scanstep  {
+  my ($ptr)=shift;
+  my $i,$item;
+  debug("SCANSTEP : $ptr");
+  # --- Image
+  my @imgproc=split(/\|/,$IMAGE[$ptr]);
+  debug(".. $ptr <$IMAGE[$ptr]> <$imgproc[0]>");
+  for (my $i=0; $i < @imgproc; $i++ ) {
+    $item=$imgproc[$i];
+    debug(" IMG $item");
+    if ( -e $item ) {
+      $CURIMG=$item;
+      $loaded=loadimg($item);
+      showimg($loaded);
+    }
+    else  {
+      macroexec($item);
+    }
+  }
+  # --- Sound
+  my $sndproc=split(/\|/,$SOUND[$ptr]);
+  for ( my $i=0; $i < @sndproc; $i++ ) {
+    $item=$sndproc[$i];
+  } 
+}
+# -------------------------------------------------------------------
+sub resetparams {
+
+  $TIME=5; # default
+  $LOC='c'; 
+  $BG='';
+  $XOFF=0; # modified by the macro 'off(x,y)'
+  $YOFF=0;
+}
+# -------------------------------------------------------------------
+sub nextstep  {
+  if ( $START == 1 ) {
+    $ptr=0; 
+  }
+  else  {
+   $ptr++;
+  }
+  resetparams();
+  if ( $ptr >= $cnt )  {
+    debug("\n\n-------------- RECYCLING ------------------");
+    $ptr=0;
+    $canvas->delete(all);
+  }
+  debug("=================================================");
+  debug("{$ptr/$cnt} $IMAGE[$ptr] $SOUND[$ptr]");
+  debug("=================================================");
+  scanstep($ptr);
+  if ( $MODE ne 'freerun' )  {
+    $TIME=999;
+  }
+  $STARTTIME=time();
+  $timer=$canvas->after(1000,\&checktime);
+} 
+
+# -------------------------------------------------------------------
+sub checktime  {
+  my $curtime=time();
+  my $elapsed=$curtime-$STARTTIME;
+  if ( $elapsed < $TIME )  {
+    $timer=$canvas->after(1000,\&checktime);
+    $tmsg=sprintf("%-3s/%3s",$elapsed, $TIME);
+    $menu_timer->configure(-text => $tmsg, -bg => lightyellow);
+    return;
+  }
+  else  {
+    $menu_timer->configure(-text => ' new ', -bg => yellow );
+  }
+} 
+
+# -------------------------------------------------------------------
+sub reset_timer  {
+  if ( $MODE eq 'freerun' )  {
+    if ( defined $timer ) {
+      $timer->cancel();
+    }
+    $menu_timer->configure(-text => 'reset', -bg => lightgrey);
+  }
+}
+
+
+# -------------------------------------------------------------------
+sub stop {
+  reset_timer();
+  mute();
+  $MODE='stop';
+  $menu_stop->configure(-bg => green);
+  $menu_freerun->configure(-bg => darkgrey);
+}
+# -------------------------------------------------------------------
+sub freerun  {
+  $MODE="freerun";
+  $menu_stop->configure(-bg => darkgrey );
+  $menu_freerun->configure(-bg => green);
+}
+
+# -------------------------------------------------------------------
+sub step  {
+  reset_timer();
+  $MODE='step';
+  nextstep();
+}
+
+# -------------------------------------------------------------------
+sub loadimg  {
+  my ($IMG)=shift;
+  print "  => Loading $IMG\n";
+  $image = $canvas->Photo( -file=>$IMG, -format=>gif );
+  return($image);
+}
+
+# -------------------------------------------------------------------
+sub showimg  {
+  my ($imgobj)=shift;
+  my $xoff=0;
+  my $yoff=0;
+  if ( $LOC eq '' )   { $LOC='c'; }  # default = center
+  if ( $LOC eq 'c' )  { $xoff=$XMAX/2; $yoff=$YMAX/2; }
+  if ( $LOC eq 'n' )  { $xoff=$XMAX/2; }
+  if ( $LOC eq 'nw' ) { $xoff=0; $yoff=0; }
+  if ( $LOC eq 'nc' ) { $xoff=$XMAX; $yoff=0; }
+  if ( $LOC eq 's' )  { $xoff=$XMAX/2; $yoff=$YMAX; }
+  if ( $LOC eq 'sw' ) { $xoff=0; $yoff=$YMAX; }
+  if ( $LOC eq 'sc' ) { $xoff=$XMAX; $yoff=$YMAX; }
+  if ( $LOC eq 'w' )  { $yoff=$YMAX/2; }
+  if ( $LOC eq 'e' )  { $xoff=$XMAX; $yoff=$YMAX/2; }
+  
+  # -- use a casual macro off(x,y);
+  $xoff=$xoff+$XOFF;
+  $yoff=$yoff+$YOFF;
+  
+  # ------- 
+  if ( $MEMRESET eq '|'  || $BG ne '' ) {
+     debug('*** Frame memory reste');
+     $canvas->delete('all');
+  } 
+  if ( $BG ne '' )  {
+     print "-- create rect $XMAX $YMAX\n";
+     $canvas->create('rectangle',0,0,$XMAX,$YMAX,-fill => $BG);
+  }
+  print "-- create Image $LOC\n";
+  $canvas->createImage($xoff, $yoff, -anchor=>$LOC, -image=>$imgobj);
+}
+
+# -------------------------------------------------------------------
+sub loadit  {
+  my ($img)=shift;
+  print "-- loadit $img\n";
+  $cur=loadimg($img);
+  showimg($cur);
+  freerun;
+}
+
+
+# -------------------------------------------------------------------
+#sub MainLoop  {
+
+#}
+  
+# -------------------------------------------------------------------
+#  MAIN
+# -------------------------------------------------------------------
+
+init();
+loadscript();
+initwind();
+initcmd();
+
+$BG='white'; $LOC='se';
+print "Load IMAGE\n";
+loadit("10_m.gif");
+$BG=''; $LOC='nw';
+loadit("11_m.gif");
+$LOC='c';
+loadit("12_m.gif");
+MainLoop;
+
