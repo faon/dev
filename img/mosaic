@@ -1,0 +1,259 @@
+#!/usr/bin/perl
+
+$VERSION='2009-08-05';
+# --------------------------------------------------------------
+# 6m54s pour 311 éléments, 5 MOS72P :  mosaic -f 15 -m 6 $LIST
+# --------------------------------------------------------------
+
+$FONTSIZE=6;
+
+if ( $ARGV[0] eq '-h' ) {
+    print "---------------------------------------- MOSAIC AE:$VERSION\n";
+    print "mosaic [-n] [-s] [-m] [-f fontsize] cols  *jpeg\n";
+    print "-n : no embedded label\n";
+    print "-s : adapted to screen display (landscape + lores) [def=portrait]\n";
+    print "-m : multilines tag (split on '_')\n";
+    print "-f fontsize (default = $FONTSIZE)\n";
+    print "Ex: mosaic 5 *jpg  : 5 cols mosaic\n";    
+    exit;
+}
+
+
+sub init {
+    @LIST=();
+    @ROWCOMMENT=();
+    	
+    $CWD=`pwd`; chomp($CWD);
+
+    # -- final mosaic size
+    $PRNW=3200;
+    $PRNH=2400;
+    $VIDW=1200;
+    $VIDH=900;
+    $MOZW=$PRNW;
+    $MOZH=$PRNH;
+    # -----------------
+    $LABEL=1;
+    $MULTI=0;   # multilines comment
+    $MODE='P';  # print
+    while (substr($ARGV[0],0,1) eq "-") {
+	if ( $ARGV[0] eq "-n" ) {  
+	    shift(@ARGV);
+	    $LABEL=0;
+	}
+	if ( $ARGV[0] eq "-m" ) {  
+	    shift(@ARGV);
+	    $MULTI=1;
+	}
+	if ( $ARGV[0] eq "-f" ) {  
+	    shift(@ARGV);
+	    $FONTSIZE=shift(@ARGV);
+	}
+	if ( $ARGV[0] eq "-s" ) {  # screen display
+	    shift(@ARGV);
+	    $MOZW=$VIDW;
+	    $MOZH=$VIDH;
+	    $MODE='S';  # screen
+	}
+    }
+    $COLS=shift(@ARGV);
+    if ( $MODE eq 'S' ) {
+      $ROWS=$COLS;    # landscape
+    }
+    else  {
+      $ROWS=$COLS*2;  # portrait
+    }
+    print "Mosaic size : $MOZW x $MOZH    Label=$LABEL Cols=$COLS Rows=$ROWS FontSize=$FONTSIZE\n";
+}
+
+
+# ----------------------------------------------------
+sub imgsize  {
+    ($file)=@_;
+    my $sizetxt=`identify -ping $file | cut -d' ' -f3`;
+    chomp $sizetxt;
+    ($w,$h)=split(/x/,$sizetxt);
+    # print "-- $file : $w  $h\n";
+    return ($w,$h);    
+}
+
+# ----------------------------------------------------
+sub flush  {
+    my ($list,$id)=@_;
+    if ( $list eq "" ) {
+	return;
+    }
+    system("pnmcat -lr $list > cat$id.pnm");
+    # save just the bare name
+    $list=~s/.pnm//g;
+    push(@ROWCOMMENT,$list);
+}
+
+# ----------------------------------------------------
+sub catflush  {
+    my ($list,$frame,$comment)=@_;
+    if ( $list eq "" ) {
+	return;
+    }
+    my $num=$COLS*$ROWS;
+    $comment=~s/^ //;  # discard the heading space
+    my ($first)=split(" ",$comment);
+    my ($tag,undef)=split(/\./,$first);
+    $comment=~s/ +/:/g; # use : as separator
+    $comment="AE$comment"; # a space is in front of comment -> : 
+    # -----
+    my $target="$CWD/MOS${num}${MODE}_${tag}.jpg";
+    print "\n------\nCATFLUSH: L<$list> T<$tag> C<$comment>\n--> TARG<$targ>";    
+    print "--> FRAME <$list> TAG=$tag FR=<$frame>\n   COM=<$comment>\n";
+    system("pnmcat -tb $list | pnmtojpeg -quality 70 -comment \"$comment\" > $target");
+}
+
+# ----------------------------------------------------
+sub prepare {
+    $FIRST=1;  # use the first image id for the MOSAIC id
+    foreach $jpg (@ARGV) {
+	($W,$H)=imgsize($jpg);
+	my $yoffset=270;
+	my $xscale=$MOZW/$W/$ROWS;
+	my $yscale=$MOZH/$H/$ROWS;
+	if ( $xscale < $yscale ) {
+	    $S="x";
+	    $SCALE=$xscale;
+	}
+	else  {
+	    $S="y";
+	    $SCALE=$yscale;
+	}
+	# print "Scaling : $xscale $yscale $SCALE ($S)\n";
+    	$img=`basename $jpg`; chomp($img);
+	$ID=$img;
+	$ID=~s/.jpg//i;
+	$ID=~s/.jpeg//i;
+	$ID=~s/_a$//i;
+
+	if ( $FIRST == 1 )  {
+	    $FIRST=0;
+	    $TAG=$ID;  # first number
+	}
+	print "..$img JPEG -> PNM  $I ID:<$ID> (TAG:$TAG)\n";
+
+	$WIDTH=int($W*$SCALE);
+	$HEIGHT=int($H*$SCALE);
+
+        
+	$CMD="jpegtopnm $jpg | pnmscale $SCALE  | pnmmargin -white 2 ";
+	if ( $LABEL == 1 ) {
+	  if ( $MULTI == 0 ) {
+	    $fontsize=$FONTSIZE;
+	    $yoffset=$HEIGHT;
+	    $CMD="$CMD | ppmlabel -background white -size $fontsize".
+		" -colour black -x 2 -y $yoffset  -text \" $ID \"   ";
+
+	    # $yoffset++;
+	    # $CMD="$CMD | ppmlabel -background transparent -size $fontsize".
+	    # 	" -colour white -x 3 -y $yoffset  -text \"$ID\"   ";
+	  }
+	  # -------------------------- multiline
+	  else {
+	    $fontsize=int($FONTSIZE*1.5);
+    	    $yoffset=$HEIGHT-int($fontsize*3);
+	    my ($date,$time)=split(/_/,$ID);
+	    $date=substr($date,0,4).'-'.substr($date,4,2).'-'.substr($date,6,2);
+	    $time=substr($time,0,2).':'.substr($time,2,2).':'.substr($time,4,2);
+	    # ----------- date
+	    $CMD="$CMD | ppmlabel -background transparent -size $fontsize".
+		" -colour black -x 2 -y $yoffset  -text \"$date\"   ";
+	    $yoffset++;
+	    $CMD="$CMD | ppmlabel -background transparent -size $fontsize".
+		" -colour white -x 3 -y $yoffset  -text \"$date\"   ";
+            # ------------ time
+	    $yoffset=$HEIGHT-$FONTSIZE;
+            $CMD="$CMD | ppmlabel -background transparent -size $fontsize".
+		" -colour black -x 2 -y $yoffset  -text \"$time\"   ";
+	    $yoffset++;
+	    $CMD="$CMD | ppmlabel -background transparent -size $fontsize".
+		" -colour white -x 3 -y $yoffset  -text \"$time\"   ";
+	  }
+	}
+	$CMD="$CMD > /tmp/$ID.pnm";
+	print "$CMD\n";
+	system("$CMD");
+	push(@LIST,"$ID");
+    }
+}
+
+# ----------------------------------------------------
+sub buildrows  {
+    chdir("/tmp");
+    $ROW=-1;
+    $STR="";
+    
+    for ($i=0; $i<=$#LIST; $i++) {
+	if ( $i % $COLS == 0 )  {
+	    flush($STR, $ROW);
+	    $ROW++;
+	    $STR="";
+	    print "New row # $ROW\n";
+	    }
+	$STR="$STR $LIST[$i].pnm"; # one more col
+	print "  $ROW: $LIST[$i].pnm\n";
+    }
+    flush($STR,$ROW);
+}
+
+# ----------------------------------------------------
+sub buildmosaic  {
+    $FRAME=-1;
+    $STR="";
+    $COMMENT="";
+    map( s/.JPG//g , @ROWCOMMENT);
+    map( s/.jpg//g , @ROWCOMMENT);
+
+    for ($c=0; $c<=$#ROWCOMMENT; $c++ )  {
+	print "Com# $c: <$ROWCOMMENT[$c]>\n";
+    }
+    for ($j=0; $j<=$ROW; $j++ )  {
+	$FRAME++;
+		
+	if ( $j % $ROWS  == 0 )  {
+	    catflush($STR,$FRAME,$COMMENT);
+	    $STR="";
+	    $COMMENT="";
+	    print "New frame # $FRAME\n";
+	    }
+	$COMMENT="$COMMENT $ROWCOMMENT[$j]";
+	$STR="$STR cat$j.pnm";
+	print "  $ROW: cat$j.pnm COM=<$COMMENT>\n";
+    }
+    catflush($STR,$FRAME,$COMMENT);
+}
+
+sub finish  {
+    chdir($CWD);
+    my $coef=int($MOZW/$ROWS);
+    $THUMB="thumbs-${coef}";
+    if ( ! -d $THUMB )  {
+	system("mkdir $THUMB");
+    }
+    print "FINISH ----\n";
+    for (my $i=0; $i<=$#LIST; $i++) {
+	print "  $i: $LIST[$i]\n";
+	system("pnmtojpeg -quality 70 /tmp/${LIST[$i]}.pnm > $THUMB/${LIST[$i]}:${coef}.jpg");
+	system("rm /tmp/${LIST[$i]}.pnm ");
+    }
+    system("rm /tmp/cat*pnm");
+}
+# ======================================
+#       MAIN
+# ======================================
+
+init();
+
+prepare();
+buildrows();
+buildmosaic();
+finish();
+
+# pnmindex -t 'Index from AE' $LIST > mos.pnm
+
+

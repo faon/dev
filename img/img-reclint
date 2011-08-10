@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+
+foreach $file (@ARGV) {
+  print "-> $file \n";
+  system("mv $file /tmp/$file");
+  open(IN,"/tmp/$file");
+  open(OUT,"> $file");
+  my %rec;
+  while (<IN>) {
+    chomp;
+    my ($f,$val)=split(/:/,$_);
+    $rec{$f}=$val;
+  } 
+  foreach $k ( keys %rec ) {
+    print OUT "$k:$rec{$k}\n";
+  }
+  close(IN);
+  close(OUT);
+}
+

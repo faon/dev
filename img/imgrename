@@ -1,0 +1,16 @@
+echo "IMAGE RENAME ------------------------------------ A.Empain'2007"
+echo "Renaming the imgages with their EXIF time, with a casual adjustment"
+echo -n "Time adjustment  [-]HH[:MM[:SS]]     or RETURN : "
+read ADJ
+if [ -z ADJ ]
+then
+  echo "-> no adjustment"
+  echo ".. renaming as YYMMDD_HHMMSS.jpg"
+  exiv2 rename $*
+else
+  echo "-> time shift : $ADJ"
+  exiv2 adjust -a $ADJ $*
+  echo ".. renaming as YYMMDD_HHMMSS.jpg"
+  exiv2 rename $*
+fi
+echo "OK"

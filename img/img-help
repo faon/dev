@@ -1,0 +1,26 @@
+#!/bin/bash
+
+myhelp () {
+  cat <<-EOF
+------------------------------------------------------------- AE-Dec2010 ----
+Image setup
+~~~~~~~~~~~
+0/ www-data must belong to alain's group to be allowed to write the new files
+1/ alain must belong to www-data's group to be allowed to mod the new files
+2/ from the CWD, file mod are set to 664, dir to 775 by img-setup
+
+-----------------------------------------------------------------------------
+Structure :
+1/ serie base (ex: 200905-Toscane) : serie.info -> GUI info
+2/ day dirs (ex: 20090511-Florence) : day.info -> GUI info + img.info 
+3/ day dirs : img.all, img.ok, img.nice, img.best
+4/ day dirs : thumbs and MOS files for ok, nice and best 
+      
+-----------------------------------------------------------------------------
+$1
+EOF
+
+}
+
+myhelp "Error : Ceci"
+

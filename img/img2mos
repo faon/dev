@@ -1,0 +1,61 @@
+#!/bin/bash
+# ------------ 2
+# LIST=`find . -name [0-9]*jpg | grep -v thumbs | sort`
+# CNT=`find .  -name [0-9]*jpg | grep -v thumbs | wc -l`
+
+if [ ! -f img.all ]
+  then
+  echo "TOC Mosaic"
+  echo "Edit img.good and img.nice and restart $0"
+  find . -name '[0-9]*jpg' | egrep -v "thumbs|MOS" | sort > img.all
+  echo -n "Count : "
+  wc -l img.all
+  sleep 2
+  T0=`date +%s`
+  mosaic -f 16  6 `cat img.all`
+  T1=`date +%s`
+  echo "TOC : $(( $T1 - $T0 )) sec"
+  # -----------
+  exit
+  # -----------
+fi
+
+if [ -f img.ok ]
+then
+  echo "MOSAIC on good images"
+  echo -n "Count : "
+  wc -l img.ok
+  sleep 2
+  T0=`date +%s`
+  mosaic -f 8 -m 3 `cat img.ok`
+  T1=`date +%s`
+  echo "Ok : $(( $T1 - $T0 )) sec" 
+fi
+
+
+if [ -f img.nice ]
+then
+  echo "MOSAIC on nice images"
+  echo -n "Count : "
+  wc -l img.nice
+  sleep 2
+  T0=`date +%s`
+  mosaic -f 8 -m 2 `cat img.nice`
+  T1=`date +%s`
+  echo "Nice : $(( $T1 - $T0 )) sec"   
+fi
+
+if [ -f img.best ]
+then
+  echo "MOSAIC on best images"
+  echo -n "Count : "
+  wc -l img.best
+  sleep 2
+  T0=`date +%s`
+  mosaic -f 8 -m 1 `cat img.best`
+  T1=`date +%s`
+  echo "Best : $(( $T1 - $T0 )) sec"   
+fi
+
+
+

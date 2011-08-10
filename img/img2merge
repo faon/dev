@@ -1,0 +1,32 @@
+#!/bin/bash
+
+find . -name '*jpg' -exec basename {} \; > img.list
+echo "------- Checking ------------"
+wc -l img.list
+echo "Duplications :"
+sort img.list | uniq -c | sort -n | grep -v '^      1'
+read -p "If no duplications, Ok ? [y/N] or CTRL-C : " answ
+if [ -z $answ ] || [ $answ = 'y' ]
+then
+  echo "---------------Moving"
+  echo ".. mkdir and mv to day/..."
+  DIR=`cut -c1-8 img.list | sort | uniq`
+  for dir in $DIR
+  do
+    echo " ->   $dir"
+    mkdir -p $dir
+  done
+      
+  # --------------------------
+  echo ".. move"
+  for img in `find . -name '*jpg'`
+  do
+    DIR=`basename $img | cut -c1-8`
+    mv $img $DIR
+  done
+
+else
+  echo "Quit"
+fi
+
+

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# ----------------------
+touch serie.info
+COUNT=0
+
+for d in `find . -type d`
+do
+  if [ $d = '.' ] || [ $d = '..' ] 
+  then
+    echo "."
+  else
+    COUNT=$(( $COUNT + 1 ))
+    echo "--- Dir $d # $COUNT : creating day.info and img.info"
+    cd $d; touch day.info
+    if [ ! -f img.info ]
+    then
+      ls -1 *jpg  | awk '{ print $0 ":" }' > img.info 
+      cd ..
+    fi
+  fi
+done
+
+# -------------------------- All in one ?
+if [ $COUNT -eq 0 ]
+then
+  echo "No subdirectories..."
+  touch day.info
+  if [ ! -f img.info ]
+  then
+      ls -1 *jpg  | awk '{ print $0 ":" }' > img.info 
+  fi
+fi
+
+

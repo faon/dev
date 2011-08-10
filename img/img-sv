@@ -1,0 +1,5 @@
+TM=`date +%Y%m%d-%H%M`
+TGZ="../ae-img-${TM}.tgz"
+
+tar -czvf $TGZ mos mosaic img* blanc*
+

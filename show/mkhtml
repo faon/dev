@@ -1,0 +1,9 @@
+# recode utf8..latin-1 x 
+
+for h in txt/*wa
+do 
+   BASE=`basename $h .wa`
+  echo $BASE
+   ./show-merge -html $BASE > html/$BASE.html
+done
+

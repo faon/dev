@@ -1,0 +1,52 @@
+#!/bin/bash
+DIR=`find . -type d `
+CWD=`pwd`
+
+for dir in $DIR
+do
+  echo "-------------- $dir"
+  cd $dir
+  if [ -e DONE ]
+  then
+    echo "Already done in $dir"
+  else
+    
+    JPEG=`echo *JPG | wc -l` 
+    if [ $JPEG -gt 0 ]
+    then
+      rename 's/JPG$/jpg/' *JPG
+    fi
+
+    JPEG=`echo *JPEG | wc -l` 
+    if [ $JPEG -gt 0 ]
+    then
+      rename 's/JPEG$/jpg/' *JPEG
+    fi
+
+    JPEG=`echo *jpeg | wc -l`
+    if [ $JPEG -gt 0 ]
+    then
+      rename 's/jpeg$/jpg/' *jpeg
+    fi
+    JPG=`echo *jpg | wc -l`
+    if [ $JPG -gt 0 ]
+    then
+      for file in *jpg
+      do
+        N70=`exiv2 print $file | grep 'Camera model    : N70-1' | wc -l `
+        if [ $N70 -eq 1 ]
+        then
+          echo "N70 : $file, rotate 90"
+          mv $file $file.tmp
+          convert -rotate 90   $file.tmp $file
+          rm $file.tmp         # the original
+        fi
+	exiv2 rename $file
+      done
+    else
+      echo "No jpg in $dir"
+    fi
+    touch DONE
+  fi
+  cd $CWD
+done

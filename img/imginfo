@@ -1,0 +1,91 @@
+#!/usr/bin/perl -w
+my $BLANC;
+
+# ---------------------
+my $BASE=`basename $BLANC .jpg`; chomp $BASE;
+# my $sizetxt=`identify -ping $file | cut -d' ' -f3`; chomp $sizetxt;
+my ($w,$h)=split(/x/,$sizetxt);
+my $h1=14;
+my $h2=12;
+my $maxchar=26;
+my $topmargin=10;
+my $leftmargin=5; $lm=$leftmargin;
+my $spacing=3;
+# ---------------------------------------------
+sub init {
+  $BLANC="/home/lib/blanc-266.jpg";
+  if ( ! -f $BLANC ) {
+    die("Please, copy a blanc jpg file 271x204 pixels as /home/lib/blanc-266.jpg\n");
+  }
+  $DEPTH=0;
+  $SERIE="serie.info";
+  while ( ! -f $SERIE  ) {
+    $SERIE="../$SERIE";
+    $DEPTH++;
+    if ( $DEPTH > 4 ) {
+      die("<E> 'serie.info' is not yet found, depth=$DEPTH, $SERIE\n");
+    }
+  }
+}
+
+# -------------------------------------------
+sub buildFrom {
+  my ($INFO)=@_;
+  my ($TO,$dummy)=split(/\./,$INFO);
+  $TO="0_$TO.jpg";  # to force it to be the first, before YYYYMMDD
+
+  my $PWD=`pwd`; chomp($PWD);
+  my $DIR=`basename $PWD`; 
+  my $DATE=substr($DIR,0,8);
+  my $CMD="jpegtopnm $BLANC  ";
+  open(INFO,$INFO);
+
+  # --------------------- header
+  $header1=<INFO>; chomp($header1);
+  if ( $header1 eq '' ) {
+    return;
+  }
+ 
+  $y=$h1+$topmargin;
+  $CMD="$CMD | ppmlabel -background white -size $h1 -colour black -x $lm -y $y -text '$header1'";
+
+  # --------------------- subheader
+  $header2=<INFO>; chomp($header2);
+  if ( $header2 eq '' ) {
+    $header2=$DATE;
+  }
+  $y=$y+$h1+$spacing;
+  $CMD="$CMD | ppmlabel -background white -size $h2 -colour darkgray -x $lm -y $y -text '    $header2'";
+  
+
+  # --------------------- next lines 
+  while (<INFO>) {
+    chomp;
+    if ( length($_) > 26 ) {
+      die("<E> '$_' is too long (max $maxchar characters)\n");
+    }
+    $y=$y+$h2+$spacing;
+    $CMD="$CMD | ppmlabel -background white -size $h2 -colour green -x $lm -y $y -text '$_'";
+  }
+  $CMD="$CMD | pnmtojpeg -quality 70 > $TO";
+
+  print "$CMD\n";
+  system("$CMD");
+}
+
+
+# ---------------------------------------------
+#   MAIN
+# ---------------------------------------------
+init();
+
+my $IMG=$ARGV[1];
+
+if ( -f "serie.info" ) {
+  buildFrom("serie.info");
+}
+
+if ( -f "day.info" ) {
+  buildFrom("day.info");
+}
+

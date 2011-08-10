@@ -1,0 +1,103 @@
+#!/usr/bin/perl 
+
+my $mode='';
+my $text=shift(@ARGV);
+if ( $text =~ /^\-/ ) {
+  $mode=substr($text,1);
+  $text=shift(@ARGV);
+}
+
+# ---------------------------
+my $FRtxt="txt/$text.fr";
+my $WAtxt="txt/$text.wa";
+
+my @WA;
+my @FR;
+my $WAtitle;
+my $FRtitle;
+
+# ---------------------------
+sub getWA  {
+  open(IN, $WAtxt);
+  while(<IN>)  {
+    chomp;
+    if ( $_ =~ /^\</ )  {
+      if ( $_ =~ /^<WA>/ ) {
+        $WAtitle=$_;
+      }
+      next;
+    }
+    if ( $_ =~ /^$/ ) { next; }
+    push(@WA,$_);
+  }
+  close(IN);
+}
+
+# ---------------------------
+sub getFR  {
+  open(IN, $FRtxt);
+  while(<IN>)  {
+   chomp;
+   if ( /^</ )  {
+     if ( /^<FR>/ ) {
+       $FRtitle=$_;
+     }
+     next;
+   }
+   if ( $_ =~  '^$' ) { next; }
+   push(@FR,$_);
+  }
+  close(IN);
+}
+
+# -----------------------------
+sub txtOut  {
+  $wa=@WA;
+  $fr=@FR;
+  $min;
+  print "TITRE: $WAtitle\n";
+  print "       $FRtitle\n";
+  print "Wa: $wa  Fr: $fr\n";
+  if ( $fr < $wa ) {  $min=$fr; }
+  else  { $min=$wa; }
+ 
+  for (my $i=0; $i<$min; $i++ ) {
+    print "$WA[$i]\n";
+    print "-- $FR[$i]\n";
+  }
+}
+
+# -----------------------------
+sub htmlOut  {
+  $wa=@WA;
+  $fr=@FR;
+  $min;
+  print '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'."\n";
+
+  print "<HTML><HEAD><TITLE>Traductions WA-FR</TITLE><meta charset='utf-8' />
+</HEAD><BODY>\n";
+  print "<H1>$WAtitle</H1>\n";
+  print "<H3>$FRtitle</H3>\n";
+  print "Wa: $wa  Fr: $fr <HR>\n";
+  if ( $fr < $wa ) {  $min=$fr; }
+  else  { $min=$wa; }
+ 
+  for (my $i=0; $i<$min; $i++ ) {
+    print "<P>$WA[$i]<BR>\n";
+    print "-- <I><FONT color='green'> $FR[$i]<FONT color='black'></I></P>\n";
+  }
+  print "</BODY></HTML>\n";
+}
+
+
+# -------------------------------------------
+#  MAIN
+# -------------------------------------------
+
+getWA();
+getFR();
+if ( $mode eq '' ) { txtOut(); }
+if ( $mode eq 'html' ) { htmlOut(); }
+
+
+

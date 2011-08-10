@@ -1,0 +1,303 @@
+%!PS-Adobe-3.0
+%%Title: Traductions WA-FR
+%%Creator: html2ps version 1.0 beta5
+%%CreationDate: Sun Jul  3 17:58:31 2011
+%%DocumentNeededResources: font Times-Roman Times-Italic Times-Bold
+%%DocumentData: Clean7Bit
+%%Orientation: Portrait
+%%BoundingBox: 71 136 543 707
+%%Pages: 1
+%%EndComments
+%%BeginProlog
+/d {bind def} bind def
+/D {def} d
+/ie {ifelse} d
+/E {exch} d
+/t true D
+/f false D
+/FL [/Times-Roman
+/Times-Italic
+/Times-Bold
+/Times-BoldItalic
+/Courier
+/Courier-Oblique
+/Courier-Bold
+/Courier-BoldOblique
+/Helvetica
+/Helvetica-Oblique
+/Helvetica-Bold
+/Helvetica-BoldOblique] D
+/Cd {aload length 2 idiv dup dict begin {D} repeat currentdict end} D
+/reencodeISO {
+ dup dup findfont dup length dict begin{1 index /FID ne{D}{pop pop}ie}forall
+ /Encoding ISOLatin1Encoding D currentdict end definefont} D
+/ISOLatin1Encoding [
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/space/exclam/quotedbl/numbersign/dollar/percent/ampersand/quoteright
+/parenleft/parenright/asterisk/plus/comma/hyphen/period/slash
+/zero/one/two/three/four/five/six/seven/eight/nine/colon/semicolon
+/less/equal/greater/question/at/A/B/C/D/E/F/G/H/I/J/K/L/M/N
+/O/P/Q/R/S/T/U/V/W/X/Y/Z/bracketleft/backslash/bracketright
+/asciicircum/underscore/quoteleft/a/b/c/d/e/f/g/h/i/j/k/l/m
+/n/o/p/q/r/s/t/u/v/w/x/y/z/braceleft/bar/braceright/asciitilde
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef/.notdef
+/.notdef/space/exclamdown/cent/sterling/currency/yen/brokenbar
+/section/dieresis/copyright/ordfeminine/guillemotleft/logicalnot
+/hyphen/registered/macron/degree/plusminus/twosuperior/threesuperior
+/acute/mu/paragraph/periodcentered/cedilla/onesuperior/ordmasculine
+/guillemotright/onequarter/onehalf/threequarters/questiondown
+/Agrave/Aacute/Acircumflex/Atilde/Adieresis/Aring/AE/Ccedilla
+/Egrave/Eacute/Ecircumflex/Edieresis/Igrave/Iacute/Icircumflex
+/Idieresis/Eth/Ntilde/Ograve/Oacute/Ocircumflex/Otilde/Odieresis
+/multiply/Oslash/Ugrave/Uacute/Ucircumflex/Udieresis/Yacute
+/Thorn/germandbls/agrave/aacute/acircumflex/atilde/adieresis
+/aring/ae/ccedilla/egrave/eacute/ecircumflex/edieresis/igrave
+/iacute/icircumflex/idieresis/eth/ntilde/ograve/oacute/ocircumflex
+/otilde/odieresis/divide/oslash/ugrave/uacute/ucircumflex/udieresis
+/yacute/thorn/ydieresis
+] D
+[128/backslash 129/parenleft 130/parenright 141/circumflex 142/tilde
+143/perthousand 144/dagger 145/daggerdbl 146/Ydieresis 147/scaron 148/Scaron
+149/oe 150/OE 151/guilsinglleft 152/guilsinglright 153/quotesinglbase
+154/quotedblbase 155/quotedblleft 156/quotedblright 157/endash 158/emdash
+159/trademark]
+aload length 2 idiv 1 1 3 -1 roll{pop ISOLatin1Encoding 3 1 roll put}for
+/colorimage where{pop}{
+ /colorimage {
+  pop pop /Pr E D {/Cv Pr D /Gr Cv length 3 idiv string D 0 1 Gr length 1 sub
+   {Gr E dup /i E 3 mul D Cv i get 0.299 mul Cv i 1 add get 0.587 mul add
+    Cv i 2 add get 0.114 mul add cvi put}for Gr} image} D
+}ie
+/pdfmark where{pop}{userdict /pdfmark /cleartomark load put}ie
+
+/MySymbol 10 dict dup begin
+ /FontType 3 D /FontMatrix [.001 0 0 .001 0 0 ] D /FontBBox [25 -10 600 600] D
+ /Encoding 256 array D 0 1 255{Encoding exch /.notdef put}for
+ Encoding (e) 0 get /euro put
+ /Metrics 2 dict D Metrics begin
+  /.notdef 0 D
+  /euro 651 D
+ end
+ /BBox 2 dict D BBox begin
+  /.notdef [0 0 0 0] D
+  /euro [25 -10 600 600] D
+ end
+ /CharacterDefs 2 dict D CharacterDefs begin
+  /.notdef {} D
+  /euro{newpath 114 600 moveto 631 600 lineto 464 200 lineto 573 200 lineto
+   573 0 lineto -94 0 lineto 31 300 lineto -10 300 lineto closepath clip
+   50 setlinewidth newpath 656 300 moveto 381 300 275 0 360 arc stroke
+   -19 350 moveto 600 0 rlineto -19 250 moveto 600 0 rlineto stroke}d
+ end
+ /BuildChar{0 begin
+  /char E D /fontdict E D /charname fontdict /Encoding get char get D
+  fontdict begin
+   Metrics charname get 0 BBox charname get aload pop setcachedevice
+   CharacterDefs charname get exec
+  end
+ end}D
+ /BuildChar load 0 3 dict put /UniqueID 1 D
+end
+definefont pop
+/Nf {dup 0 ge{FL E get}{-1 eq{/Symbol}{/MySymbol}ie}ie findfont
+ E scalefont setfont} D
+/IP {currentfile picstr readhexstring pop} D
+/WF t D
+/F 1 D
+/N {showpage} d
+/RL {rlineto} d
+/S {show} d
+/L {lineto} d
+/M {moveto} d
+/A {awidthshow} d
+/RM {rmoveto} d
+%%EndProlog
+%%BeginSetup
+WF{FL{reencodeISO D}forall}{4 1 FL length 1 sub{FL E get reencodeISO D}for}ie
+/Symbol dup dup findfont dup length dict begin
+ {1 index /FID ne{D}{pop pop}ie}forall /Encoding [Encoding aload pop]
+ dup 128 /therefore put D currentdict end definefont D
+[/Creator (html2ps version 1.0 beta5) /Author () /Keywords () /Subject () /Title (Traductions WA-FR) /DOCINFO pdfmark
+[/PageMode /UseOutlines /DOCVIEW pdfmark
+[/Count 1 /Dest /1 /Title (Cw\303\245rdje\303\273) /OUT pdfmark
+[/Count 1 /Dest /2 /Title () /OUT pdfmark
+[/Dest /2 /Title (Le jeu de cartes) /OUT pdfmark
+%%EndSetup
+%%Page: 1 1
+%%PageResources: font Times-Roman Times-Italic Times-Bold
+%%PageBoundingBox: 71 136 543 707
+%%BeginPageSetup
+/pgsave save D
+71 706 translate
+%%EndPageSetup
+0 0 M
+0.6 setlinewidth
+0 0 M
+[/View [/XYZ -4 791 null] /Dest /0 /DEST pdfmark
+0 -19 M
+%%IncludeResource: font Times-Bold
+19 2 Nf
+(Cw\303\245rdje\303\273) S
+[/View [/XYZ -4 791 null] /Dest /1 /DEST pdfmark
+0 -49 M
+15 2 Nf
+(Le) S
+[/View [/XYZ -4 675.0 null] /Dest /2 /DEST pdfmark
+( jeu de ) S
+(cartes) S
+0 -69.7 M
+%%IncludeResource: font Times-Roman
+11 0 Nf
+(Wa: 26 Fr: 27 ) S
+0 -80.7 M
+gsave
+1 setlinewidth
+0 setgray
+471.0 0 RL
+stroke
+grestore
+0.0 -11.0 RM
+0 -104.9 M
+(Al\303\250 Don\303\251, vinez-v? C'\303\250st l'e\303\273re di nosse ) S
+(cw\303\245rdje\303\273) S
+0 -118.1 M
+11 0 Nf
+(-- ) S
+%%IncludeResource: font Times-Italic
+11.0 1 Nf
+(Allez Don\303\251, venez-vous ? C'est l'heure de notre jeu de ) S
+(cartes) S
+0 -142.3 M
+11.0 1 Nf
+(Bi\303\250tm\303\251 \303\250t l'grand Dj\303\250r\303\245 v'n\303\250t d\303\250dja d\303\250 ) S
+(passer) S
+0 -155.5 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Barth\303\251lemy et le grand G\303\251rard viennent d\303\251j\303\240 de ) S
+(passer) S
+0 -179.7 M
+11.0 1 Nf
+(I n'\303\250st\303\256t nin tot se\303\273s, il av\303\256t pris l'hayete\303\273 ) S
+(!) S
+0 -192.9 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Ils n'\303\251taient pas seuls, ils avaient pris ) S
+(l'ardoisier) S
+0 -217.1 M
+11.0 1 Nf
+(Avou lu, prinde est\303\250me ca c'\303\250-st-in ) S
+(\303\245rgot\303\251) S
+0 -230.3 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Avec lui, faire attention, car c'est un ) S
+(rus\303\251.) S
+0 -254.5 M
+11.0 1 Nf
+(On mariole sins par\303\250ye \303\250t minme on p\303\264 ) S
+(trim'le\303\273) S
+0 -267.7 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Un rus\303\251 sans pareil et m\303\252me un peu ) S
+(tricheur) S
+0 -291.9 M
+11.0 1 Nf
+(Qui n'\303\250st nin so n'h\303\250gne pr\303\250s \303\250t qu'inme bin d\303\250 ) S
+(fraw'ter.) S
+0 -305.1 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Qui n'est pas sur une grimace pr\303\250s et qui aime bien de tricher ) S
+0 -329.3 M
+11.0 1 Nf
+(Al\303\250, nos ve\303\273rans bin, ca nos \303\250stans nos ) S
+(de\303\273s) S
+0 -342.5 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Allez, nous verrons bien, car nous sommes nous ) S
+(deux) S
+0 -366.7 M
+11.0 1 Nf
+(Et l\303\250s \303\264tes ratind\303\250t, \303\256 n'f\303\245t pu ) S
+(lum'ciner.) S
+0 -379.9 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Et les autres attendent, il ne faut plus ) S
+(tra\303\256ner) S
+0 -404.1 M
+11.0 1 Nf
+(Ev\303\264ye po nosse couyon ! Qui \303\250st-ce qui va ) S
+(mah\303\256) S
+0 -417.3 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(En route, pour notre jeu de cartes ! Qui va m\303\251langer ) S
+(?) S
+0 -441.5 M
+11.0 1 Nf
+(Dimande li v\303\256 Mitch\303\256 avou s'dj\303\245cob \303\250l min ) S
+(?) S
+0 -454.7 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Demande le vieux Michel avec sa pipe en ) S
+(main) S
+0 -478.9 M
+11.0 1 Nf
+(C'\303\250-st-\303\245 to\303\273r d'\303\240 Bi\303\250tm\303\251 \303\250t l'hayete\303\273 va ) S
+(pougn\303\256) S
+0 -492.1 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(C'est au tour de Barth\303\251lemy et l'ardoisier va ) S
+(couper) S
+0 -516.3 M
+11.0 1 Nf
+(Mi, dji s\303\273 l'grand Dj\303\250r\303\245, ca c'\303\250st lu qu'a l'amin ) S
+(!) S
+0 -529.5 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Moi, je suis le grand G\303\251rard, car c'est lui qui a la ) S
+(main) S
+0 -553.7 M
+11.0 1 Nf
+(Atote m\303\250s camarades \303\250t n'rouv\303\256z nin d'ch\303\250rvi ) S
+(!) S
+0 -566.9 M
+11.0 1 Nf
+(-- ) S
+11.0 1 Nf
+(Atout mes camarades et n'oubliez pas de ) S
+(servir) S
+0 -577.9 M
+gsave
+0 setgray
+235.5 -661 M
+0 setgray
+0 -8 M
+grestore
+pgsave restore N
+%%EOF
